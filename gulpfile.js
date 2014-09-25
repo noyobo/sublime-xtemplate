@@ -23,7 +23,7 @@ var checkDuplicate = function(file, cb) {
     cb(null, file)
 }
 
-gulp.task("lint", function() {
+gulp.task('lint', function() {
     return gulp
         .src("*.sublime-snippet")
         .pipe(lintspaces({
@@ -38,6 +38,4 @@ gulp.task('check', function() {
         .pipe(map(checkDuplicate))
 });
 
-gulp.task('default', function() {
-    gulp.run(['lint', 'check']);
-});
+gulp.task('default', ['lint', 'check']);
