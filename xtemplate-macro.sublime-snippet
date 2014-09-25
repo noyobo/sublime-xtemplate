@@ -1,12 +1,12 @@
 <snippet>
     <content><![CDATA[
-{{#if(${1:true})}}
-    ${2:<div/>}
-{{/if}}
+{{#macro('${1:name}',${2:'param'})}}
+    ${3://something}
+{{/macro}}
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-    <tabTrigger>xif</tabTrigger>
+    <tabTrigger>xm</tabTrigger>
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
     <scope>source.js, text.html, text.xtpl, text.htm</scope>
-    <description>if...</description>
+    <description>macro</description>
 </snippet>

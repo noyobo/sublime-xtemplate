@@ -1,12 +1,10 @@
 <snippet>
     <content><![CDATA[
-{{#if(${1:true})}}
-    ${2:<div/>}
-{{/if}}
+{{! ${1:zhu shi} }}
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-    <tabTrigger>xif</tabTrigger>
+    <tabTrigger>xcm</tabTrigger>
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
     <scope>source.js, text.html, text.xtpl, text.htm</scope>
-    <description>if...</description>
+    <description>{{! zhu shi }}</description>
 </snippet>
