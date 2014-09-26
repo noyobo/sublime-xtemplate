@@ -2,7 +2,7 @@
     <content><![CDATA[
 {{#if(${1:true})}}
     ${2:<div/>}
-{{/if}}
+{{/if}}$0
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>xif</tabTrigger>

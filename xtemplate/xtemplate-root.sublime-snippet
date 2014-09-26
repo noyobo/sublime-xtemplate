@@ -1,16 +1,10 @@
 <snippet>
     <content><![CDATA[
-{{#if(${1:x===1})}}
-    ${2}
-{{elseif(${3:x===2})}}
-    ${4}
-{{else}}
-    ${5}
-{{/if}}
+{{root.${1:name}}}$0
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-    <tabTrigger>xife</tabTrigger>
+    <tabTrigger>xroot</tabTrigger>
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
     <scope>source.js, text.html, text.xtpl, text.htm</scope>
-    <description>if...else...</description>
+    <description>root</description>
 </snippet>
