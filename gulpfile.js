@@ -50,4 +50,13 @@ gulp.task('dev', function() {
         .pipe(copy('C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User'))
 })
 
+gulp.task('language', function() {
+    return gulp
+        .src([paths.language])
+        .pipe(copy('C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User'))
+})
+
+gulp.task('watch', function() {
+    gulp.watch(paths.language, ['language']);
+});
 gulp.task('default', ['lint', 'check']);
