@@ -16,6 +16,7 @@
   "homepage": "https://github.com/noyobo/sublime-xtemplate-snippets",
   "devDependencies": {
     "gulp": "^3.8.8",
+    "gulp-copy": "0.0.2",
     "gulp-lintspaces": "^0.2.2",
     "gulp-util": "^3.0.1",
     "lodash": "^2.4.1",
