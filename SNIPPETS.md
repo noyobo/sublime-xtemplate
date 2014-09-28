@@ -2,7 +2,7 @@
 
 |trigger|description    |export                                                                            |
 |-------|---------------|----------------------------------------------------------------------------------|
-|k      |kissy          |```<script src="//g.alicdn.com/kissy/k/${1:1.4.7}/seed${2:-min}.js"></script>```  |
+|k      |kissy cdn      |```<script src="//g.alicdn.com/kissy/k/${1:1.4.7}/seed${2:-min}.js"></script>```  |
 |x++    |{{% %}}        |```{{%    %}}```                                                                  |
 |x+     |{{% %}}        |```{{%  %}}```                                                                    |
 |x      |{{_}}          |```{{}}```                                                                        |

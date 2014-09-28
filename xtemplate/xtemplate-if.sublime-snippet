@@ -2,11 +2,11 @@
     <content><![CDATA[
 {{#if(${1:true})}}
     ${2://code}
-{{/if}}$0
+{{/if}}
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>xif</tabTrigger>
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
-    <scope>source.js, text.html, text.xtpl, text.htm</scope>
+    <!-- <scope>source.js, text.html, text.xtpl, text.htm</scope> -->
     <description>if...</description>
 </snippet>

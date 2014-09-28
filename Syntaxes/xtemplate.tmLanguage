@@ -105,7 +105,7 @@
 		<key>block_helper</key>
 		<dict>
 			<key>begin</key>
-			<string>(\{\{~?\#)([-a-zA-Z0-9_\./]+)\s?+(@?[-a-zA-Z0-9_\./]+)*</string>
+			<string>(\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s?+(@?[-a-zA-Z0-9_\./]+)*</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -116,7 +116,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant.xtpl</string>
+					<string>variable.parameter.xtp</string>
 				</dict>
 				<key>3</key>
 				<dict>
@@ -203,7 +203,7 @@
 		<key>end_block</key>
 		<dict>
 			<key>begin</key>
-			<string>(\{\{~?/)([a-zA-Z0-9_\.-]+)\s*</string>
+			<string>(\{\{~?)(/[a-zA-Z0-9_\.-]+)\s*</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -214,7 +214,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant.xtpl</string>
+					<string>variable.parameter.xtpl</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -1078,7 +1078,7 @@
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>text.xtpl</string>
+	<string>source.xtpl</string>
 	<key>uuid</key>
 	<string>d9776d5a-afa4-4016-8c8e-ffbe386edb58</string>
 </dict>

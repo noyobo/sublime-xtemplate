@@ -9,6 +9,8 @@ var copy = require('gulp-copy')
 var markdown = require('markdown-creator');
 var XMLMapping = require('xml-mapping');
 var fs = require('fs')
+var os = require('os').platform()
+
 var Promise = require('promise');
 
 var writeFile = Promise.denodeify(fs.writeFile)
@@ -52,14 +54,8 @@ gulp.task('check', function(done) {
 
 gulp.task('dev', function() {
     return gulp
-        .src([paths.snippets, paths.language])
-        .pipe(copy('C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User'))
-})
-
-gulp.task('language', function() {
-    return gulp
-        .src([paths.language])
-        .pipe(copy('C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User'))
+        .src(['Preferences/*', 'Syntaxes/*', 'xtemplate/*', 'kissy/*'])
+        .pipe(copy('C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/syntax xtemplate'))
 })
 
 gulp.task('watch', function() {

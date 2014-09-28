@@ -1,15 +1,14 @@
 # [PackageDev] target_format: plist, ext: tmLanguage
 ---
 name: Xtemplate
-scopeName: text.xtpl
+scopeName: source.xtpl
 fileTypes: [xtpl, html]
 uuid: d9776d5a-afa4-4016-8c8e-ffbe386edb58
 
 repository:
   html_tags:
     patterns:
-      -
-        begin: '(<)([a-zA-Z0-9:]+)(?=[^>]*></\2>)'
+      - begin: '(<)([a-zA-Z0-9:]+)(?=[^>]*></\2>)'
         beginCaptures:
           '1':
             name: punctuation.definition.tag.html
@@ -27,10 +26,8 @@ repository:
             name: punctuation.definition.tag.html
         name: meta.tag.any.html
         patterns:
-          -
-            include: '#tag-stuff'
-      -
-        begin: '(<\?)(xml)'
+          - include: '#tag-stuff'
+      - begin: '(<\?)(xml)'
         captures:
           '1':
             name: punctuation.definition.tag.html
@@ -39,14 +36,10 @@ repository:
         end: '(\?>)'
         name: meta.tag.preprocessor.xml.html
         patterns:
-          -
-            include: '#tag-generic-attribute'
-          -
-            include: '#string-double-quoted'
-          -
-            include: '#string-single-quoted'
-      -
-        begin: '<!--'
+          - include: '#tag-generic-attribute'
+          - include: '#string-double-quoted'
+          - include: '#string-single-quoted'
+      - begin: '<!--'
         captures:
           '0':
             name: punctuation.definition.comment.html
@@ -56,31 +49,26 @@ repository:
           -
             match: '--'
             name: invalid.illegal.bad-comments-or-CDATA.html
-      -
-        begin: '<!'
+      - begin: '<!'
         captures:
           '0':
             name: punctuation.definition.tag.html
         end: '>'
         name: meta.tag.sgml.html
         patterns:
-          -
-            begin: (DOCTYPE|doctype)
+          - begin: (DOCTYPE|doctype)
             captures:
               '1': { name: entity.name.tag.doctype.html }
             end: '(?=>)'
             name: meta.tag.sgml.doctype.html
             patterns:
               - { match: '"[^">]*"', name: string.quoted.double.doctype.identifiers-and-DTDs.html }
-          -
-            begin: '\[CDATA\['
+          - begin: '\[CDATA\['
             end: ']](?=>)'
             name: constant.other.inline-data.html
-          -
-            match: '(\s*)(?!--|>)\S(\s*)'
+          - match: '(\s*)(?!--|>)\S(\s*)'
             name: invalid.illegal.bad-comments-or-CDATA.html
-      -
-        begin: '(?:^\s+)?(<)((?i:style))\b(?![^>]*/>)'
+      - begin: '(?:^\s+)?(<)((?i:style))\b(?![^>]*/>)'
         captures:
           '1':
             name: punctuation.definition.tag.html
@@ -91,17 +79,14 @@ repository:
         end: '(</)((?i:style))(>)(?:\s*\n)?'
         name: source.css.embedded.html
         patterns:
-          -
-            include: '#tag-stuff'
-          -
-            begin: (>)
+          - include: '#tag-stuff'
+          - begin: (>)
             beginCaptures:
               '1': { name: punctuation.definition.tag.html }
             end: '(?=</(?i:style))'
             patterns:
               - { include: source.css }
-      -
-        begin: '(?:^\s+)?(<)((?i:script))\b(?![^>]*/>)'
+      - begin: '(?:^\s+)?(<)((?i:script))\b(?![^>]*/>)'
         beginCaptures:
           '1':
             name: punctuation.definition.tag.html
@@ -113,10 +98,8 @@ repository:
             name: punctuation.definition.tag.html
         name: source.js.embedded.html
         patterns:
-          -
-            include: '#tag-stuff'
-          -
-            begin: '(?<!</(?:script|SCRIPT))(>)'
+          - include: '#tag-stuff'
+          - begin: '(?<!</(?:script|SCRIPT))(>)'
             captures:
               '1': { name: punctuation.definition.tag.html }
               '2': { name: entity.name.tag.script.html }
@@ -125,8 +108,7 @@ repository:
               - { captures: { '1': { name: punctuation.definition.comment.js } }, match: '(//).*?((?=</script)|$\n?)', name: comment.line.double-slash.js }
               - { begin: '/\*', captures: { '0': { name: punctuation.definition.comment.js } }, end: '\*/|(?=</script)', name: comment.block.js }
               - { include: source.js }
-      -
-        begin: '(</?)((?i:body|head|html)\b)'
+      - begin: '(</?)((?i:body|head|html)\b)'
         captures:
           '1':
             name: punctuation.definition.tag.html
@@ -135,10 +117,8 @@ repository:
         end: (>)
         name: meta.tag.structure.any.html
         patterns:
-          -
-            include: '#tag-stuff'
-      -
-        begin: '(</?)((?i:address|blockquote|dd|div|header|section|footer|aside|nav|dl|dt|fieldset|form|frame|frameset|h1|h2|h3|h4|h5|h6|iframe|noframes|object|ol|p|ul|applet|center|dir|hr|menu|pre)\b)'
+          - include: '#tag-stuff'
+      - begin: '(</?)((?i:address|blockquote|dd|div|header|section|footer|aside|nav|dl|dt|fieldset|form|frame|frameset|h1|h2|h3|h4|h5|h6|iframe|noframes|object|ol|p|ul|applet|center|dir|hr|menu|pre)\b)'
         captures:
           '1':
             name: punctuation.definition.tag.html
@@ -147,10 +127,8 @@ repository:
         end: (>)
         name: meta.tag.block.any.html
         patterns:
-          -
-            include: '#tag-stuff'
-      -
-        begin: '(</?)((?i:a|abbr|acronym|area|b|base|basefont|bdo|big|br|button|caption|cite|code|col|colgroup|del|dfn|em|font|head|html|i|img|input|ins|isindex|kbd|label|legend|li|link|map|meta|noscript|optgroup|option|param|q|s|samp|script|select|small|span|strike|strong|style|sub|sup|table|tbody|td|textarea|tfoot|th|thead|title|tr|tt|u|var)\b)'
+          - include: '#tag-stuff'
+      - begin: '(</?)((?i:a|abbr|acronym|area|b|base|basefont|bdo|big|br|button|caption|cite|code|col|colgroup|del|dfn|em|font|head|html|i|img|input|ins|isindex|kbd|label|legend|li|link|map|meta|noscript|optgroup|option|param|q|s|samp|script|select|small|span|strike|strong|style|sub|sup|table|tbody|td|textarea|tfoot|th|thead|title|tr|tt|u|var)\b)'
         captures:
           '1':
             name: punctuation.definition.tag.html
@@ -159,10 +137,8 @@ repository:
         end: '((?: ?/)?>)'
         name: meta.tag.inline.any.html
         patterns:
-          -
-            include: '#tag-stuff'
-      -
-        begin: '(</?)([a-zA-Z0-9:]+)'
+          - include: '#tag-stuff'
+      - begin: '(</?)([a-zA-Z0-9:]+)'
         captures:
           '1':
             name: punctuation.definition.tag.html
@@ -171,31 +147,25 @@ repository:
         end: (>)
         name: meta.tag.other.html
         patterns:
-          -
-            include: '#tag-stuff'
-      -
-        include: '#entities'
-      -
-        match: '<>'
+          - include: '#tag-stuff'
+      - include: '#entities'
+      - match: '<>'
         name: invalid.illegal.incomplete.html
-      -
-        match: '<'
+      - match: '<'
         name: invalid.illegal.bad-angle-bracket.html
   entities:
     patterns:
-      -
-        captures:
+      - captures:
           '1':
             name: punctuation.definition.entity.html
           '3':
             name: punctuation.definition.entity.html
         name: constant.character.entity.html
         match: '(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)'
-      -
-        name: invalid.illegal.bad-ampersand.html
+      - name: invalid.illegal.bad-ampersand.html
         match: '&'
   end_block:
-    begin: '(\{\{~?/)([a-zA-Z0-9_\.-]+)\s*'
+    begin: '(\{\{~?)(/[a-zA-Z0-9_\.-]+)\s*'
     end: '(~?\}\})'
     name: meta.function.block.end.xtpl
     endCaptures:
@@ -205,65 +175,53 @@ repository:
       '1':
         name: support.constant.xtpl
       '2':
-        name: support.constant.xtpl
+        name: variable.parameter.xtpl
     patterns: []
   yfm:
     patterns:
-      -
-        patterns:
-          -
-            include: source.yaml
+      - patterns:
+          - include: source.yaml
         begin: '(?<!\s)---\n$'
         end: ^---\s
         name: markup.raw.yaml.front-matter
   comments:
     patterns:
-      -
-        patterns:
-          -
-            name: keyword.annotation.xtpl
+      - patterns:
+          - name: keyword.annotation.xtpl
             match: '@\w*'
-          -
-            include: '#comments'
+          - include: '#comments'
         begin: '\{\{![^<]'
         end: '\}\}'
         name: comment.block.xtpl
-      -
-        captures:
+      - captures:
           '0':
             name: punctuation.definition.comment.html
         begin: '<!--'
         end: '-{2,3}\s*>'
         name: comment.block.html
         patterns:
-          -
-            name: invalid.illegal.bad-comments-or-CDATA.html
+          - name: invalid.illegal.bad-comments-or-CDATA.html
             match: '--'
   block_comments:
     patterns:
-      -
-        patterns:
-          -
-            name: keyword.annotation.xtpl
+      - patterns:
+          - name: keyword.annotation.xtpl
             match: '@\w*'
-          -
-            include: '#comments'
+          - include: '#comments'
         begin: '\{\{!--'
         end: '--\}\}'
         name: comment.block.xtpl
-      -
-        captures:
+      - captures:
           '0':
             name: punctuation.definition.comment.html
         begin: '<!--'
         end: '-{2,3}\s*>'
         name: comment.block.html
         patterns:
-          -
-            name: invalid.illegal.bad-comments-or-CDATA.html
+          - name: invalid.illegal.bad-comments-or-CDATA.html
             match: '--'
   block_helper:
-    begin: '(\{\{~?\#)([-a-zA-Z0-9_\./]+)\s?+(@?[-a-zA-Z0-9_\./]+)*'
+    begin: '(\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s?+(@?[-a-zA-Z0-9_\./]+)*'
     end: '(~?\}\})'
     name: meta.function.block.start.xtpl
     endCaptures:
@@ -273,14 +231,12 @@ repository:
       '1':
         name: support.constant.xtpl
       '2':
-        name: support.constant.xtpl
+        name: variable.parameter.xtp
       '3':
         name: variable.parameter.xtpl
     patterns:
-      -
-        include: '#string-single-quoted'
-      -
-        include: '#string-double-quoted'
+      - include: '#string-single-quoted'
+      - include: '#string-double-quoted'
   string-single-quoted:
     begin: ''''
     end: ''''
@@ -292,16 +248,11 @@ repository:
       '0':
         name: punctuation.definition.string.begin.html
     patterns:
-      -
-        include: '#block_comments'
-      -
-        include: '#comments'
-      -
-        include: '#block_helper'
-      -
-        include: '#end_block'
-      -
-        include: '#partial_and_var'
+      - include: '#block_comments'
+      - include: '#comments'
+      - include: '#block_helper'
+      - include: '#end_block'
+      - include: '#partial_and_var'
   partial_and_var:
     begin: '(\{\{~?\{*(>|!<)*)\s*(@?[-a-zA-Z0-9_\./]+)*'
     end: '(~?\}\}\}*)'
@@ -315,10 +266,8 @@ repository:
       '3':
         name: variable.parameter.xtpl
     patterns:
-      -
-        include: '#string-single-quoted'
-      -
-        include: '#string-double-quoted'
+      - include: '#string-single-quoted'
+      - include: '#string-double-quoted'
   string-double-quoted:
     begin: '"'
     end: '"'
@@ -330,16 +279,11 @@ repository:
       '0':
         name: punctuation.definition.string.begin.html
     patterns:
-      -
-        include: '#block_comments'
-      -
-        include: '#comments'
-      -
-        include: '#block_helper'
-      -
-        include: '#end_block'
-      -
-        include: '#partial_and_var'
+      - include: '#block_comments'
+      - include: '#comments'
+      - include: '#block_helper'
+      - include: '#end_block'
+      - include: '#partial_and_var'
   inline_script:
     begin: '(?:^\s+)?(<)((?i:script))\b(?:.*(type)=(["''](?:text/x-xtpl-template|text/x-xtpl|text/template)["'']))(?![^>]*/>)'
     beginCaptures:
@@ -357,10 +301,8 @@ repository:
         name: punctuation.definition.tag.html
     name: source.xtpl.embedded.html
     patterns:
-      -
-        include: '#tag-stuff'
-      -
-        begin: '(?<!</(?:script|SCRIPT))(>)'
+      - include: '#tag-stuff'
+      - begin: '(?<!</(?:script|SCRIPT))(>)'
         captures:
           '1':
             name: punctuation.definition.tag.html
@@ -368,20 +310,13 @@ repository:
             name: entity.name.tag.script.html
         end: '(</)((?i:script))'
         patterns:
-          -
-            include: '#block_comments'
-          -
-            include: '#comments'
-          -
-            include: '#block_helper'
-          -
-            include: '#end_block'
-          -
-            include: '#partial_and_var'
-          -
-            include: '#html_tags'
-          -
-            include: text.html.basic
+          - include: '#block_comments'
+          - include: '#comments'
+          - include: '#block_helper'
+          - include: '#end_block'
+          - include: '#partial_and_var'
+          - include: '#html_tags'
+          - include: text.html.basic
   tag_generic_attribute:
     begin: '\b([a-zA-Z0-9_-]+)\b\s*(=)'
     captures:
@@ -390,10 +325,8 @@ repository:
       '2':
         name: punctuation.separator.key-value.html
     patterns:
-      -
-        include: '#string-single-quoted'
-      -
-        include: '#string-double-quoted'
+      - include: '#string-single-quoted'
+      - include: '#string-double-quoted'
     name: entity.other.attribute-name.html
     end: '(?<=''|"|)'
   tag_id_attribute:
@@ -406,48 +339,28 @@ repository:
     end: '(?<=''|"|)'
     name: meta.attribute-with-value.id.html
     patterns:
-      -
-        include: '#string-single-quoted'
-      -
-        include: '#string-double-quoted'
+      - include: '#string-single-quoted'
+      - include: '#string-double-quoted'
   tag-stuff:
     patterns:
-      -
-        include: '#tag_id_attribute'
-      -
-        include: '#tag_generic_attribute'
-      -
-        include: '#string-double-quoted'
-      -
-        include: '#string-single-quoted'
-      -
-        include: '#block_comments'
-      -
-        include: '#comments'
-      -
-        include: '#block_helper'
-      -
-        include: '#end_block'
-      -
-        include: '#partial_and_var'
+      - include: '#tag_id_attribute'
+      - include: '#tag_generic_attribute'
+      - include: '#string-double-quoted'
+      - include: '#string-single-quoted'
+      - include: '#block_comments'
+      - include: '#comments'
+      - include: '#block_helper'
+      - include: '#end_block'
+      - include: '#partial_and_var'
 
 patterns:
-  -
-    include: '#yfm'
-  -
-    include: '#block_comments'
-  -
-    include: '#comments'
-  -
-    include: '#block_helper'
-  -
-    include: '#end_block'
-  -
-    include: '#partial_and_var'
-  -
-    include: '#inline_script'
-  -
-    include: '#html_tags'
-  -
-    include: text.html.basic
+  - include: '#yfm'
+  - include: '#block_comments'
+  - include: '#comments'
+  - include: '#block_helper'
+  - include: '#end_block'
+  - include: '#partial_and_var'
+  - include: '#inline_script'
+  - include: '#html_tags'
+  - include: text.html.basic
 ...
