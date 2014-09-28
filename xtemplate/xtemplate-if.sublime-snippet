@@ -1,7 +1,7 @@
 <snippet>
     <content><![CDATA[
 {{#if(${1:true})}}
-    ${2:<div/>}
+    ${2://code}
 {{/if}}$0
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

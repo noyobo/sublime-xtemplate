@@ -6,5 +6,5 @@
     <tabTrigger>xe</tabTrigger>
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
     <scope>source.js, text.html, text.xtpl, text.htm</scope>
-    <description>extend ...}}</description>
+    <description>extend ...</description>
 </snippet>
