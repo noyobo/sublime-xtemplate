@@ -5,7 +5,6 @@
 |k      |kissy cdn      |```<script src="//g.alicdn.com/kissy/k/${1:1.4.7}/seed${2:-min}.js"></script>```  |
 |x++    |{{% %}}        |```{{%    %}}```                                                                  |
 |x+     |{{% %}}        |```{{%  %}}```                                                                    |
-|x      |{{_}}          |```{{}}```                                                                        |
 |xb     |block ...      |```{{{block ('body')}}}```                                                        |
 |xbc    |block ... block|```{{#block ('body')}}    //code{{/block}}```                                     |
 |xcm    |{{! zhu shi }} |```{{! zhu shi }}```                                                              |
@@ -23,5 +22,6 @@
 |xs     |set            |```{{set(x=1)}}```                                                                |
 |xthis  |this           |```{{this}}```                                                                    |
 |xw     |with ...       |```{{#with(obj)}}    //code{{/with}}```                                           |
-|xx     |{{{_}}}        |```{{{}}}```                                                                      |
+|xx     |{{-}}          |```{{}}```                                                                        |
+|xxx    |{{{_}}}        |```{{{}}}```                                                                      |
 
