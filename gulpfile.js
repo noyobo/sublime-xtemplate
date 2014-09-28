@@ -9,13 +9,13 @@ var copy = require('gulp-copy')
 var markdown = require('markdown-creator');
 var XMLMapping = require('xml-mapping');
 var fs = require('fs')
-var os = require('os').platform()
-
+var osplatform = require('os').platform()
+var gulpif = require('gulp-if');
 var Promise = require('promise');
 
 var writeFile = Promise.denodeify(fs.writeFile)
 var appendFile = Promise.denodeify(fs.appendFile);
-
+var isMac = osplatform === 'darwin';
 var paths = {
     snippets: '**/*.sublime-snippet',
     language: '**/*.tmLanguage'
@@ -55,7 +55,14 @@ gulp.task('check', function(done) {
 gulp.task('dev', function() {
     return gulp
         .src(['Preferences/*', 'Syntaxes/*', 'xtemplate/*', 'kissy/*'])
-        .pipe(copy('C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/syntax xtemplate'))
+        .pipe(
+            gulpif(
+                isMac,
+                copy('../../../Library/Application Support/Sublime Text 3/Packages/Xtemplate')
+                ,
+                copy('C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/syntax xtemplate')
+            )
+        )
 })
 
 gulp.task('watch', function() {
