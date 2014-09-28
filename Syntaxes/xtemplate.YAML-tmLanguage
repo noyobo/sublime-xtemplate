@@ -2,7 +2,7 @@
 ---
 name: Xtemplate
 scopeName: source.xtpl
-fileTypes: [xtpl, html]
+fileTypes: [xtpl, tpl, html, htm]
 uuid: d9776d5a-afa4-4016-8c8e-ffbe386edb58
 
 repository:
@@ -175,7 +175,7 @@ repository:
       '1':
         name: support.constant.xtpl
       '2':
-        name: variable.parameter.xtpl
+        name: entity.name.function.xtpl
     patterns: []
   yfm:
     patterns:
@@ -202,6 +202,7 @@ repository:
         patterns:
           - name: invalid.illegal.bad-comments-or-CDATA.html
             match: '--'
+
   block_comments:
     patterns:
       - patterns:
@@ -216,12 +217,25 @@ repository:
             name: punctuation.definition.comment.html
         begin: '<!--'
         end: '-{2,3}\s*>'
-        name: comment.block.html
+        name: comment.block.xtpl
         patterns:
           - name: invalid.illegal.bad-comments-or-CDATA.html
             match: '--'
+      - captures:
+          '0':
+              name: punctuation.definition.comment.html
+        begin: '\/\/'
+        end: '([\t\n])\s*'
+        name: comment.block.xtpl
+      - captures:
+          '0':
+              name: punctuation.definition.comment.html
+        begin: '\/\*'
+        end: '\*\/\s*'
+        name: comment.block.xtpl
+
   block_helper:
-    begin: '(\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s?+(@?[-a-zA-Z0-9_\./]+)*'
+    begin: '(\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s*(?:(?:\()([^\)]+)(?:\)))?\s*'
     end: '(~?\}\})'
     name: meta.function.block.start.xtpl
     endCaptures:
@@ -231,7 +245,7 @@ repository:
       '1':
         name: support.constant.xtpl
       '2':
-        name: variable.parameter.xtp
+        name: entity.name.function.xtpl
       '3':
         name: variable.parameter.xtpl
     patterns:
@@ -254,7 +268,7 @@ repository:
       - include: '#end_block'
       - include: '#partial_and_var'
   partial_and_var:
-    begin: '(\{\{~?\{*(>|!<)*)\s*(@?[-a-zA-Z0-9_\./]+)*'
+    begin: '(\{\{~?\{*(>|!<)*)\s*(\/[-_a-zA-Z0-9\.]+|else\b|elseif\b)?([-_a-zA-Z0-9\.]+)?\s*(?:(?:\()([^\)]+)(?:\)))?\s*'
     end: '(~?\}\}\}*)'
     name: meta.function.inline.other.xtpl
     endCaptures:
@@ -264,6 +278,10 @@ repository:
       '1':
         name: support.constant.xtpl
       '3':
+        name: entity.name.function.xtpl
+      '4':
+        name: variable.parameter.xtpl
+      '5':
         name: variable.parameter.xtpl
     patterns:
       - include: '#string-single-quoted'

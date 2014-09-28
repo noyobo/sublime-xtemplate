@@ -5,7 +5,9 @@
 	<key>fileTypes</key>
 	<array>
 		<string>xtpl</string>
+		<string>tpl</string>
 		<string>html</string>
+		<string>htm</string>
 	</array>
 	<key>name</key>
 	<string>Xtemplate</string>
@@ -89,7 +91,7 @@
 					<key>end</key>
 					<string>-{2,3}\s*&gt;</string>
 					<key>name</key>
-					<string>comment.block.html</string>
+					<string>comment.block.xtpl</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -100,12 +102,44 @@
 						</dict>
 					</array>
 				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\/\/</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.html</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>([\t\n])\s*</string>
+					<key>name</key>
+					<string>comment.block.xtpl</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\/\*</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.html</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*\/\s*</string>
+					<key>name</key>
+					<string>comment.block.xtpl</string>
+				</dict>
 			</array>
 		</dict>
 		<key>block_helper</key>
 		<dict>
 			<key>begin</key>
-			<string>(\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s?+(@?[-a-zA-Z0-9_\./]+)*</string>
+			<string>(\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s*(?:(?:\()([^\)]+)(?:\)))?\s*</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -116,7 +150,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.xtp</string>
+					<string>entity.name.function.xtpl</string>
 				</dict>
 				<key>3</key>
 				<dict>
@@ -214,7 +248,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.xtpl</string>
+					<string>entity.name.function.xtpl</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -813,7 +847,7 @@
 		<key>partial_and_var</key>
 		<dict>
 			<key>begin</key>
-			<string>(\{\{~?\{*(&gt;|!&lt;)*)\s*(@?[-a-zA-Z0-9_\./]+)*</string>
+			<string>(\{\{~?\{*(&gt;|!&lt;)*)\s*(\/[-_a-zA-Z0-9\.]+|else\b|elseif\b)?([-_a-zA-Z0-9\.]+)?\s*(?:(?:\()([^\)]+)(?:\)))?\s*</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -822,6 +856,16 @@
 					<string>support.constant.xtpl</string>
 				</dict>
 				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.xtpl</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.xtpl</string>
+				</dict>
+				<key>5</key>
 				<dict>
 					<key>name</key>
 					<string>variable.parameter.xtpl</string>
