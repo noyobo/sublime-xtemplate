@@ -1,0 +1,21 @@
+感谢你安装 Syntax Highlighting & snippets for xtemplate
+
+==================================
+
+项目地址: https://github.com/noyobo/sublime-xtemplate-snippets
+Issuse: https://github.com/noyobo/sublime-xtemplate-snippets/issues/new
+
+欢迎提交issuse. 让 Xtemplate 更健壮 :)
+你可以通过 Preferneces > Browse Pageage 打开 Xtemplate 目录. 增加/修改 代码
+
+=================================
+
+你可以这这里查看支持的 snippets 列表 : https://github.com/noyobo/sublime-xtemplate-snippets/blob/master/SNIPPETS.md
+
+安装成功后, 你需要设置使用 Xtemplate 打开 .xtpl 文件
+在 sublime 的右下角选择 Open all with current extension as ...
+选择 Xtemplate
+
+自动完成提示:
+
+输入 x 显示出支持列表
