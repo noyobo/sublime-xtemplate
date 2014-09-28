@@ -6,47 +6,51 @@ var gutil = require('gulp-util');
 var path = require('path');
 var _ = require('lodash');
 var copy = require('gulp-copy')
+var markdown = require('markdown-creator');
+var XMLMapping = require('xml-mapping');
+var fs = require('fs')
+var trim = require('trim')
 
 
 var paths = {
-    snipptes: '**/*.sublime-snippet',
+    snippets: '**/*.sublime-snippet',
     language: '**/*.tmLanguage'
 }
 
 var tabArr = [];
-// check tabTrigger
-var checkDuplicate = function(file, cb) {
-    var regRex = /tabTrigger\>([\+\w]+)</m;
-    var baseName = path.basename(file.path)
-    var tabName = String(file.contents).match(regRex)[1];
-    if (!tabName) {
-        gutil.log(gutil.colors.red("tabTrigger not found: ", baseName));
-    };
-    if (_.indexOf(tabArr, tabName) !== -1) {
-        gutil.log(gutil.colors.red("tabTrigger[" + tabName + "] is Duplicate: ", baseName));
-    };
-    tabArr.push(tabName)
-    cb(null, file)
-}
 
+var snippetsHeader = ['trigger', 'description', 'export']
+var markdownArray = [];
+// check tabTrigger
 gulp.task('lint', function() {
     return gulp
-        .src(paths.snipptes)
+        .src(paths.snippets)
         .pipe(lintspaces({
             editorconfig: '.editorconfig'
         }))
         .pipe(lintspaces.reporter());
 });
 
-gulp.task('check', function() {
+gulp.task('check', function(done) {
     return gulp
-        .src(paths.snipptes)
+        .src(paths.snippets)
         .pipe(map(checkDuplicate))
+        .on('end', function() {
+            fs.writeFile('SNIPPETS.md', markdown.title('SNIPPETS', 1), function(err) {
+                if (err) throw err;
+                console.log('title\'s saved!');
+            });
+            var tab = markdown.table(snippetsHeader, markdownArray.sort())
+            fs.appendFile('SNIPPETS.md', tab, function(err) {
+                if (err) throw err;
+                console.log('table\'s saved!');
+            });
+        })
 });
 
 gulp.task('dev', function() {
     return gulp
-        .src([paths.snipptes, paths.language])
+        .src([paths.snippets, paths.language])
         .pipe(copy('C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User'))
 })
 
@@ -60,3 +64,30 @@ gulp.task('watch', function() {
     gulp.watch(paths.language, ['language']);
 });
 gulp.task('default', ['lint', 'check']);
+
+
+function checkDuplicate(file, cb) {
+    var baseName = path.basename(file.path)
+    var contentText = String(file.contents);
+    var XMLObj = XMLMapping.tojson(contentText, {
+        nested: false,
+        longTag: true
+    }).snippet;
+    var tabName = XMLObj.tabTrigger.$text;
+    var desc = XMLObj.description.$text;
+    var content = XMLObj.content.$cdata;
+    content = content.replace(/[\n\t]/g, '')
+    while (/\$\{\d(?:\:?)([ \w\'\"\/\=\>\<\!\,\[\]]+)?\}/.test(content)) {
+        content = content.replace(/\$\{\d(?:\:?)([ \w\'\"\/\=\>\<\!\,\[\]]+)?\}/g, '$1')
+    }
+    content = content.replace('$0', '')
+    markdownArray.push([tabName, desc, '```' + content + '```'])
+    if (!tabName) {
+        gutil.log(gutil.colors.red("tabTrigger not found: ", baseName));
+    };
+    if (_.indexOf(tabArr, tabName) !== -1) {
+        gutil.log(gutil.colors.red("tabTrigger[" + tabName + "] is Duplicate: ", baseName));
+    };
+    tabArr.push(tabName)
+    cb(null, file)
+}

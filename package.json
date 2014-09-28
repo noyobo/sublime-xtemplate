@@ -21,6 +21,8 @@
     "gulp-util": "^3.0.1",
     "lodash": "^2.4.1",
     "map-stream": "^0.1.0",
-    "path": "^0.4.9"
+    "markdown-creator": "^0.1.5",
+    "path": "^0.4.9",
+    "xml-mapping": "^1.7.0"
   }
 }
