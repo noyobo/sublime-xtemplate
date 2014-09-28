@@ -9,8 +9,10 @@ var copy = require('gulp-copy')
 var markdown = require('markdown-creator');
 var XMLMapping = require('xml-mapping');
 var fs = require('fs')
-var trim = require('trim')
+var Promise = require('promise');
 
+var writeFile = Promise.denodeify(fs.writeFile)
+var appendFile = Promise.denodeify(fs.appendFile);
 
 var paths = {
     snippets: '**/*.sublime-snippet',
@@ -36,15 +38,15 @@ gulp.task('check', function(done) {
         .src(paths.snippets)
         .pipe(map(checkDuplicate))
         .on('end', function() {
-            fs.writeFile('SNIPPETS.md', markdown.title('SNIPPETS', 1), function(err) {
-                if (err) throw err;
-                console.log('title\'s saved!');
-            });
-            var tab = markdown.table(snippetsHeader, markdownArray.sort())
-            fs.appendFile('SNIPPETS.md', tab, function(err) {
-                if (err) throw err;
-                console.log('table\'s saved!');
-            });
+            writeFile('SNIPPETS.md', markdown.title('SNIPPETS', 1))
+                .then(function() {
+                    gutil.log('SNIPPETS.md Title it\' saved')
+                    var tab = markdown.table(snippetsHeader, markdownArray.sort())
+                    return appendFile('SNIPPETS.md', tab)
+                })
+                .then(function() {
+                    gutil.log('SNIPPETS.md Table it\' saved')
+                })
         })
 });
 

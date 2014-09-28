@@ -23,6 +23,7 @@
     "map-stream": "^0.1.0",
     "markdown-creator": "^0.1.5",
     "path": "^0.4.9",
+    "promise": "^6.0.0",
     "xml-mapping": "^1.7.0"
   }
 }
