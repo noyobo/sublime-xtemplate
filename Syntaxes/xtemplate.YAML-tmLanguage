@@ -175,7 +175,7 @@ repository:
       '1':
         name: support.constant.xtpl
       '2':
-        name: entity.name.function.xtpl
+        name: support.function.xtpl
     patterns: []
   yfm:
     patterns:
@@ -224,7 +224,7 @@ repository:
       - captures:
           '0':
               name: punctuation.definition.comment.html
-        begin: '\/\/'
+        begin: '^([ \t]+)?\/\/'
         end: '([\t\n])\s*'
         name: comment.block.xtpl
       - captures:
@@ -245,7 +245,7 @@ repository:
       '1':
         name: support.constant.xtpl
       '2':
-        name: entity.name.function.xtpl
+        name: support.function.xtpl
       '3':
         name: variable.parameter.xtpl
     patterns:
@@ -278,7 +278,7 @@ repository:
       '1':
         name: support.constant.xtpl
       '3':
-        name: entity.name.function.xtpl
+        name: support.function.xtpl
       '4':
         name: variable.parameter.xtpl
       '5':
