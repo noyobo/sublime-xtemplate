@@ -155,7 +155,7 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.xtpl</string>
+					<string>support.variable.xtpl</string>
 				</dict>
 			</dict>
 			<key>end</key>
