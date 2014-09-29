@@ -73,7 +73,7 @@ gulp.task('doc', function(done) {
 
 gulp.task('dev', function() {
   return gulp
-    .src(['Syntaxes/**/*', 'Snippets/**/*'])
+    .src(['Syntaxes/**/*', 'Snippets/**/*', '*.tmTheme', '*.sublime-settings'])
     .pipe(
       gulpif(
         isMac,
