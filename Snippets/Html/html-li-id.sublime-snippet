@@ -6,5 +6,5 @@
 	<tabTrigger>lid</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<!-- <scope>source.python</scope> -->
-	<description><![CDATA[<li id=""/>]]></description>
+	<description><![CDATA[li id=""]]></description>
 </snippet>
