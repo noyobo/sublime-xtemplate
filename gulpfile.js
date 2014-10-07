@@ -51,7 +51,7 @@ var buildDoc = function(file, cb) {
     content = content.replace(/\$\{\d(?:\:?)([ \w\'\"\/\=\>\<\!\,\[\]]+)?\}/g, '$1')
   }
   content = content.replace('$0', '')
-  snippetsObj[folderName].push([tabName, desc, '```' + content + '```']);
+  snippetsObj[folderName].push([tabName, '`' + desc + '`', '```' + content + '```']);
   cb(null, file)
 }
 
@@ -73,7 +73,7 @@ gulp.task('doc', function(done) {
 
 gulp.task('dev', function() {
   return gulp
-    .src(['Syntaxes/**/*', 'Snippets/**/*', '*.tmTheme', '*.sublime-settings'])
+    .src(['Syntaxes/**/*', 'Snippets/**/*', '*.tmTheme', '*.sublime-settings', 'Completions/**/*'])
     .pipe(
       gulpif(
         isMac,
