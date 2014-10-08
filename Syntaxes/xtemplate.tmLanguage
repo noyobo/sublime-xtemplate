@@ -980,6 +980,10 @@
 					<key>include</key>
 					<string>#partial_and_var</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#tag_typing_attribute</string>
+				</dict>
 			</array>
 		</dict>
 		<key>tag_generic_attribute</key>
@@ -1036,6 +1040,32 @@
 			<string>(?&lt;='|"|)</string>
 			<key>name</key>
 			<string>meta.attribute-with-value.id.html</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string-single-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-double-quoted</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tag_typing_attribute</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.other.attribute-name.typing.html</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\s+\b([-_a-zA-Z]+)\b(?!=)</string>
+			<key>name</key>
+			<string>entity.other.attribute-name.html</string>
 			<key>patterns</key>
 			<array>
 				<dict>

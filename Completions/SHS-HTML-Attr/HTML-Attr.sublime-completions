@@ -1,5 +1,4 @@
 {
-    "scope": "source.xtpl - entity.other.attribute-name.html - entity.other.attribute-name.generic.html", 
     "completions": [
         {
             "contents": "align=\"$1\"$0", 
@@ -81,5 +80,6 @@
             "contents": "title=\"$1\"$0", 
             "trigger": "title\tAttr"
         }
-    ]
+    ], 
+    "scope": "source.xtpl - source - entity.other, entity.other.attribute-name.typing.html"
 }
