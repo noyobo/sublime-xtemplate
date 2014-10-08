@@ -19,10 +19,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#block_comments</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#comments</string>
 		</dict>
 		<dict>
@@ -52,10 +48,77 @@
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>block_comments</key>
+		<key>block_helper</key>
+		<dict>
+			<key>begin</key>
+			<string>(\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s*(?:(?:\()([^\)]+)(?:\)))?\s*</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.xtpl</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.xtpl</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>support.variable.xtpl</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(~?\}\})</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.xtpl</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.function.block.start.xtpl</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string-single-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-double-quoted</string>
+				</dict>
+			</array>
+		</dict>
+		<key>comments</key>
 		<dict>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>begin</key>
+					<string>\{\{![^&lt;]</string>
+					<key>end</key>
+					<string>\}\}</string>
+					<key>name</key>
+					<string>comment.block.xtpl</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>@\w*</string>
+							<key>name</key>
+							<string>keyword.annotation.xtpl</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#comments</string>
+						</dict>
+					</array>
+				</dict>
 				<dict>
 					<key>begin</key>
 					<string>\{\{!--</string>
@@ -133,104 +196,6 @@
 					<string>\*\/\s*</string>
 					<key>name</key>
 					<string>comment.block.xtpl</string>
-				</dict>
-			</array>
-		</dict>
-		<key>block_helper</key>
-		<dict>
-			<key>begin</key>
-			<string>(\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s*(?:(?:\()([^\)]+)(?:\)))?\s*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.constant.xtpl</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>support.function.xtpl</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>support.variable.xtpl</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(~?\}\})</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.constant.xtpl</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.function.block.start.xtpl</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#string-single-quoted</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#string-double-quoted</string>
-				</dict>
-			</array>
-		</dict>
-		<key>comments</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>\{\{![^&lt;]</string>
-					<key>end</key>
-					<string>\}\}</string>
-					<key>name</key>
-					<string>comment.block.xtpl</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>match</key>
-							<string>@\w*</string>
-							<key>name</key>
-							<string>keyword.annotation.xtpl</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#comments</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>&lt;!--</string>
-					<key>captures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.html</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>-{2,3}\s*&gt;</string>
-					<key>name</key>
-					<string>comment.block.html</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>match</key>
-							<string>--</string>
-							<key>name</key>
-							<string>invalid.illegal.bad-comments-or-CDATA.html</string>
-						</dict>
-					</array>
 				</dict>
 			</array>
 		</dict>
@@ -814,10 +779,6 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#block_comments</string>
-						</dict>
-						<dict>
-							<key>include</key>
 							<string>#comments</string>
 						</dict>
 						<dict>
@@ -923,10 +884,6 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#block_comments</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#comments</string>
 				</dict>
 				<dict>
@@ -971,10 +928,6 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#block_comments</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#comments</string>
 				</dict>
 				<dict>
@@ -1010,10 +963,6 @@
 				<dict>
 					<key>include</key>
 					<string>#string-single-quoted</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#block_comments</string>
 				</dict>
 				<dict>
 					<key>include</key>

@@ -1,3 +1,4 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
 fileTypes:
 - xtpl
 - tpl
@@ -8,7 +9,6 @@ scopeName: source.xtpl
 uuid: d9776d5a-afa4-4016-8c8e-ffbe386edb58
 patterns:
 - include: '#yfm'
-- include: '#block_comments'
 - include: '#comments'
 - include: '#block_helper'
 - include: '#end_block'
@@ -17,8 +17,32 @@ patterns:
 - include: '#html_tags'
 - include: text.html.basic
 repository:
-  block_comments:
+  block_helper:
+    begin: (\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s*(?:(?:\()([^\)]+)(?:\)))?\s*
+    beginCaptures:
+      '1':
+        name: support.constant.xtpl
+      '2':
+        name: support.function.xtpl
+      '3':
+        name: support.variable.xtpl
+    end: (~?\}\})
+    endCaptures:
+      '1':
+        name: support.constant.xtpl
+    name: meta.function.block.start.xtpl
     patterns:
+    - include: '#string-single-quoted'
+    - include: '#string-double-quoted'
+  comments:
+    patterns:
+    - begin: \{\{![^<]
+      end: \}\}
+      name: comment.block.xtpl
+      patterns:
+      - match: '@\w*'
+        name: keyword.annotation.xtpl
+      - include: '#comments'
     - begin: \{\{!--
       end: --\}\}
       name: comment.block.xtpl
@@ -47,41 +71,6 @@ repository:
           name: punctuation.definition.comment.html
       end: \*\/\s*
       name: comment.block.xtpl
-  block_helper:
-    begin: (\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s*(?:(?:\()([^\)]+)(?:\)))?\s*
-    beginCaptures:
-      '1':
-        name: support.constant.xtpl
-      '2':
-        name: support.function.xtpl
-      '3':
-        name: support.variable.xtpl
-    end: (~?\}\})
-    endCaptures:
-      '1':
-        name: support.constant.xtpl
-    name: meta.function.block.start.xtpl
-    patterns:
-    - include: '#string-single-quoted'
-    - include: '#string-double-quoted'
-  comments:
-    patterns:
-    - begin: \{\{![^<]
-      end: \}\}
-      name: comment.block.xtpl
-      patterns:
-      - match: '@\w*'
-        name: keyword.annotation.xtpl
-      - include: '#comments'
-    - begin: <!--
-      captures:
-        '0':
-          name: punctuation.definition.comment.html
-      end: -{2,3}\s*>
-      name: comment.block.html
-      patterns:
-      - match: --
-        name: invalid.illegal.bad-comments-or-CDATA.html
   end_block:
     begin: (\{\{~?)(/[a-zA-Z0-9_\.-]+)\s*
     beginCaptures:
@@ -292,7 +281,6 @@ repository:
           name: entity.name.tag.script.html
       end: (</)((?i:script))
       patterns:
-      - include: '#block_comments'
       - include: '#comments'
       - include: '#block_helper'
       - include: '#end_block'
@@ -329,7 +317,6 @@ repository:
         name: punctuation.definition.string.end.html
     name: string.quoted.double.xtpl
     patterns:
-    - include: '#block_comments'
     - include: '#comments'
     - include: '#block_helper'
     - include: '#end_block'
@@ -345,7 +332,6 @@ repository:
         name: punctuation.definition.string.end.html
     name: string.quoted.single.xtpl
     patterns:
-    - include: '#block_comments'
     - include: '#comments'
     - include: '#block_helper'
     - include: '#end_block'
@@ -356,7 +342,6 @@ repository:
     - include: '#tag_generic_attribute'
     - include: '#string-double-quoted'
     - include: '#string-single-quoted'
-    - include: '#block_comments'
     - include: '#comments'
     - include: '#block_helper'
     - include: '#end_block'
