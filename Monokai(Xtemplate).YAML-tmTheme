@@ -1,11 +1,11 @@
 # [PackageDev] target_format: plist, ext: tmTheme
 name: Monokai(Xtemplate)
-uuid: 20794c0c-8b26-42df-9a28-f6b909185821
+uuid: d9776d5a-afa4-4016-8c8e-ffbe386edb58
 
 settings:
 - settings:
     activeGuide: '#9D550FB0'
-    background: '#111111'
+    background: '#222222'
     bracketContentsForeground: '#F8F8F2A5'
     bracketContentsOptions: underline
     bracketsForeground: '#F8F8F2A5'
