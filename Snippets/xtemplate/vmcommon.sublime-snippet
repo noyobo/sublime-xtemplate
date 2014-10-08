@@ -1,6 +1,6 @@
 <snippet>
 	<content><![CDATA[
-{{vmcommon ('${1:header.html}'}}
+{{vmcommon ('${1:header.html}')}}
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>xvm</tabTrigger>

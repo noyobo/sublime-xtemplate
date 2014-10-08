@@ -38,7 +38,7 @@
 |xs     |`set`            |```{{set(x=1)}}```                                                    |
 |xthis  |`this`           |```{{this}}```                                                        |
 |xtms   |`{{{tms}}}`      |```{{{tms ('${1:header.html}')}}}```                                  |
-|xvm    |`vmcommon...`    |```{{vmcommon ('${1:header.html}'}}```                                |
+|xvm    |`vmcommon...`    |```{{vmcommon ('${1:header.html}')}}```                               |
 |xw     |`with ...`       |```{{#with(obj)}}//code{{/with}}```                                   |
 |xx     |`{{-}}`          |```{{}}```                                                            |
 |xxx    |`{{{_}}}`        |```{{{}}}```                                                          |
