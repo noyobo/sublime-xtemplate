@@ -22,7 +22,7 @@
     "gulp-if": "^1.2.4",
     "gulp-lintspaces": "^0.2.2",
     "gulp-util": "^3.0.1",
-    "lodash": "^2.4.1",
+    "lodash.forin": "^2.4.1",
     "map-stream": "^0.1.0",
     "markdown-creator": "^0.1.5",
     "xml-mapping": "^1.7.0"

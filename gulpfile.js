@@ -4,7 +4,7 @@ var lintspaces = require("gulp-lintspaces");
 var map = require('map-stream');
 var gutil = require('gulp-util');
 var path = require('path');
-var _ = require('lodash');
+var _forin = require('lodash.forin');
 var copy = require('gulp-copy')
 var markdown = require('markdown-creator');
 var XMLMapping = require('xml-mapping');
@@ -72,7 +72,7 @@ gulp.task('doc', function(done) {
     .pipe(map(buildDoc))
     .on('end', function() {
       fs.writeFileSync(docName, markdown.title('Snippets List', 1))
-      _.forIn(snippetsObj, function(val, key) {
+      _forin(snippetsObj, function(val, key) {
         var markdownArray = snippetsObj[key];
         fs.appendFileSync(docName, markdown.title(key, 2))
         var tab = markdown.table(snippetsHeader, markdownArray.sort())
