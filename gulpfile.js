@@ -11,6 +11,7 @@ var XMLMapping = require('xml-mapping');
 var fs = require('fs')
 var osplatform = require('os').platform()
 var gulpif = require('gulp-if');
+var clean = require('gulp-clean')
 
 
 var isMac = osplatform === 'darwin';
@@ -31,6 +32,16 @@ gulp.task('lint', function() {
     }))
     .pipe(lintspaces.reporter());
 });
+
+gulp.task('clean:dev', function() {
+  var pathUri = isMac ? '../../../Library/Application Support/Sublime Text 3/Packages/User/Xtemplate' : 'C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/Xtemplate'
+  gutil.log(gutil.colors.green('清空目录')+':'+pathUri)
+  return gulp
+    .src(pathUri)
+    .pipe(clean({
+      'force': true
+    }))
+})
 
 var buildDoc = function(file, cb) {
   var dirname = path.dirname(file.path).split(path.sep)
@@ -71,7 +82,7 @@ gulp.task('doc', function(done) {
     })
 });
 
-gulp.task('dev', function() {
+gulp.task('dev', ['clean:dev'], function() {
   return gulp
     .src(['Syntaxes/**/*', 'Snippets/**/*', '*.tmTheme', '*.sublime-settings', 'Completions/**/*'])
     .pipe(
