@@ -81,5 +81,5 @@
             "trigger": "title\tAttr"
         }
     ], 
-    "scope": "source.xtpl - source - entity.other, entity.other.attribute-name.typing.html"
+    "scope": "source.xtpl - source - entity.other, entity.other.attribute-name.html"
 }
