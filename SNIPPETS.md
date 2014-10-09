@@ -1,11 +1,59 @@
 # Snippets List
 
-## Html
+## Html-HTML5
+
+|trigger   |description    |export                                                                                                    |
+|----------|---------------|----------------------------------------------------------------------------------------------------------|
+|article   |`<article/>`   |```<article></article>```                                                                                 |
+|aside     |`<aside/>`     |```<aside></aside>```                                                                                     |
+|audio     |`<audio/>`     |```<audio src="$1" autobuffer autoloop loop controls></audio>```                                          |
+|canvas    |`<canvas/>`    |```<canvas></canvas>```                                                                                   |
+|command   |`<command/>`   |```<command >```                                                                                          |
+|datalis   |`<datalis/>`   |```<datalis></datalis>```                                                                                 |
+|datalist  |`<datalist/>`  |```<datalist></datalist>```                                                                               |
+|embed     |`<embed/>`     |```<embed></embed>```                                                                                     |
+|figcaption|`<figcaption/>`|```<figcaption></figcaption>```                                                                           |
+|figure    |`<figure/>`    |```<figure></figure>```                                                                                   |
+|footer    |`<footer/>`    |```<footer></footer>```                                                                                   |
+|header    |`<header/>`    |```<header></header>```                                                                                   |
+|hgroup    |`<hgroup/>`    |```<hgroup></hgroup>```                                                                                   |
+|keygen    |`<keygen/>`    |```<keygen>```                                                                                            |
+|mark      |`<mark/>`      |```<mark></mark>```                                                                                       |
+|meter     |`<meter/>`     |```<meter></meter>```                                                                                     |
+|nav       |`<nav/>`       |```<nav></nav>```                                                                                         |
+|output    |`<output/>`    |```<output></output>```                                                                                   |
+|progress  |`<progress/>`  |```<progress></progress>```                                                                               |
+|section   |`<section/>`   |```<section></section>```                                                                                 |
+|source    |`<source/>`    |```<source$1>```                                                                                          |
+|summary   |`<summary/>`   |```<summary></summary>```                                                                                 |
+|time      |`<time/>`      |```<time></time>```                                                                                       |
+|video     |`<video/>`     |```<video src="$1"${2: autobuffer autoloop loop controls${7: poster="${8:/images/video.png}"}}></video>```|
+
+## Html-inline
+
+|trigger|description|export                 |
+|-------|-----------|-----------------------|
+|a      |`<a/>`     |```<a href=""></a>```  |
+|em     |`<em/>`    |```<em></em>```        |
+|i      |`<i/>`     |```<i></i>```          |
+|span   |`<span/>`  |```<span></span>```    |
+|strong |`<strong/>`|```<strong></strong>```|
+
+## Html-title
+
+|trigger|description|export         |
+|-------|-----------|---------------|
+|h1     |`<h1/>`    |```<h1></h1>```|
+|h2     |`<h2/>`    |```<h2></h2>```|
+|h3     |`<h3/>`    |```<h3></h3>```|
+|h4     |`<h4/>`    |```<h4></h4>```|
+|h5     |`<h5/>`    |```<h5></h5>```|
+|h6     |`<h6/>`    |```<h6></h6>```|
+
+## Spm
 
 |trigger  |description     |export                                     |
 |---------|----------------|-------------------------------------------|
-|lic      |`<li class=""/>`|```<li class=""></li>```                   |
-|lid      |`<li id=""/>`   |```<li id=""></li>```                      |
 |spm-click|`data-spm-click`|```data-spm-click="gostr=/key;locaid=d1"```|
 
 ## Kissy
@@ -42,4 +90,24 @@
 |xw     |`with ...`       |```{{#with(obj)}}//code{{/with}}```                                   |
 |xx     |`{{-}}`          |```{{}}```                                                            |
 |xxx    |`{{{_}}}`        |```{{{}}}```                                                          |
+
+## Html-block
+
+|trigger|description      |export                                    |
+|-------|-----------------|------------------------------------------|
+|dc     |`<div class/>`   |```<div class="name"></div>```            |
+|dd     |`<dd/>`          |```<dd></dd>```                           |
+|di     |`<div id/>`      |```<div id="J_name"></div>```             |
+|dic    |`<div id class/>`|```<div id="J_name" class="name"></div>```|
+|div    |`<div/>`         |```<div></div>```                         |
+|dl     |`<dl/>`          |```<dl><dt></dt><dd></dd></dl>```         |
+|dt     |`<dt/>`          |```<dt></dt>```                           |
+|li     |`<li/>`          |```<li></li>```                           |
+|lic    |`<li class/>`    |```<li class=""></li>```                  |
+|lid    |`<li id/>`       |```<li id=""></li>```                     |
+|ol     |`<ol/>`          |```<ol></ol>```                           |
+|p      |`<p/>`           |```<p></p>```                             |
+|pc     |`<p class/>`     |```<p class="name"></p>```                |
+|pre    |`<pre/>`         |```<pre></pre>```                         |
+|ul     |`<ul/>`          |```<ul></ul>```                           |
 

@@ -1,10 +1,9 @@
 <snippet>
-	<content><![CDATA[
-<li class="${1}">$0</li>
+	<content><![CDATA[<dt>${1}</dt>$0
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>lic</tabTrigger>
+	<tabTrigger>dt</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<scope>source.xtpl</scope>
-	<description><![CDATA[<li class=""/>]]></description>
+	<description><![CDATA[<dt/>]]></description>
 </snippet>

@@ -9,12 +9,20 @@
             "trigger": "class\tAttr"
         }, 
         {
+            "contents": "controls=\"${1:controls}\"$0", 
+            "trigger": "controls\tAttr"
+        }, 
+        {
             "contents": "dir=\"$1\"$0", 
             "trigger": "dir\tAttr"
         }, 
         {
             "contents": "data-${1:name}=\"$2\"$0", 
             "trigger": "data\tAttr"
+        }, 
+        {
+            "contents": "herf=\"$1\"$0", 
+            "trigger": "href\tAttr"
         }, 
         {
             "contents": "id=\"$1\"$0", 
@@ -79,6 +87,10 @@
         {
             "contents": "title=\"$1\"$0", 
             "trigger": "title\tAttr"
+        }, 
+        {
+            "contents": "target=\"$1\"$0", 
+            "trigger": "target\tAttr"
         }
     ], 
     "scope": "source.xtpl - source - entity.other, entity.other.attribute-name.html"

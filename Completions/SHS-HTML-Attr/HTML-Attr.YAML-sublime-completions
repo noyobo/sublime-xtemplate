@@ -5,14 +5,22 @@ completions:
   contents: align="$1"$0
 - trigger: "class\tAttr"
   contents: class="$1"$0
+- trigger: "controls\tAttr"
+  contents: 'controls="${1:controls}"$0'
 - trigger: "dir\tAttr"
   contents: dir="$1"$0
 - trigger: "data\tAttr"
-  contents: data-${1:name}="$2"$0
+  contents: 'data-${1:name}="$2"$0'
+- trigger: "href\tAttr"
+  contents: herf="$1"$0
 - trigger: "id\tAttr"
   contents: id="$1"$0
 - trigger: "lang\tAttr"
   contents: lang="$1"$0
+- trigger: "lable\tAttr"
+  contents: lable="$1"$0
+- trigger: "name\tAttr"
+  contents: name="$1"$0
 - trigger: "onclick\tAttr"
   contents: onclick="$1"$0
 - trigger: "ondbclick\tAttr"
@@ -41,3 +49,7 @@ completions:
   contents: data-spm="$1"$0
 - trigger: "title\tAttr"
   contents: title="$1"$0
+- trigger: "target\tAttr"
+  contents: target="$1"$0
+- trigger: "value\tAttr"
+  contents: value="$1"$0
