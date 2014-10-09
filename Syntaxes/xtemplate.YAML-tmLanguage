@@ -288,7 +288,7 @@ repository:
       - include: '#html_tags'
       - include: text.html.basic
   partial_and_var:
-    begin: (\{\{~?\{*(>|!<)*)\s*(\/[-_a-zA-Z0-9\.]+|else\b|elseif\b|include\b|extend\b|block\b|tms\b|set\b|vmcommon\b)?([-_a-zA-Z0-9\.]+)?\s*(?:(?:\()([^\)]+)(?:\)))?\s*
+    begin: (\{\{~?\{*(>|!<)*)\s*(\/[-_a-zA-Z0-9\.]+|(?:else|elseif|include|extend|block|tms|set|vmcommon)\b)?([-_a-zA-Z0-9\.]+)?\s*(?:(?:\()([^\)]+)(?:\)))?\s*
     beginCaptures:
       '1':
         name: support.constant.xtpl

@@ -808,7 +808,7 @@
 		<key>partial_and_var</key>
 		<dict>
 			<key>begin</key>
-			<string>(\{\{~?\{*(&gt;|!&lt;)*)\s*(\/[-_a-zA-Z0-9\.]+|else\b|elseif\b|include\b|extend\b|block\b|tms\b|set\b|vmcommon\b)?([-_a-zA-Z0-9\.]+)?\s*(?:(?:\()([^\)]+)(?:\)))?\s*</string>
+			<string>(\{\{~?\{*(&gt;|!&lt;)*)\s*(\/[-_a-zA-Z0-9\.]+|(?:else|elseif|include|extend|block|tms|set|vmcommon)\b)?([-_a-zA-Z0-9\.]+)?\s*(?:(?:\()([^\)]+)(?:\)))?\s*</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
