@@ -25,7 +25,7 @@
 |xcm    |`{{! zhu shi }}` |```{{! zhu shi }}```                                                  |
 |xe     |`extend ...`     |```{{extend ('layout')}}```                                           |
 |xeach  |`each...`        |```{{#each([1,2,4])}}${2:\{\{this\}\}}{{/each}}```                    |
-|xi     |`include...`     |```{{include ('header'}}```                                           |
+|xi     |`include...`     |```{{include ('header')}}```                                          |
 |xid    |`index`          |```{{xindex}}```                                                      |
 |xif    |`if...`          |```{{#if(true)}}//code{{/if}}```                                      |
 |xife   |`if...else...`   |```{{#if(x===1)}}//code{{else}}//code{{/if}}```                       |
