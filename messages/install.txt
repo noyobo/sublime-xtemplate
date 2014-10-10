@@ -10,6 +10,14 @@ Issuse: https://github.com/noyobo/sublime-xtemplate-snippets/issues/new
 
 =================================
 
+## Feature
+
+### KISSY 主题色 Color Scheme
+
+### Xtemplate 语法自动完成
+
+### 常用HTML代码片段
+
 ## Usage
 
 你可以这这里查看支持的 snippets 列表 :
