@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "kissy xtemplate snippets",
   "scripts": {
-    "test": "gulp"
+    "test": "gulp lint"
   },
   "repository": {
     "type": "git",
@@ -16,15 +16,15 @@
   "homepage": "https://github.com/noyobo/sublime-xtemplate-snippets",
   "devDependencies": {
     "gulp": "^3.8.8",
+    "gulp-clean": "^0.3.1",
     "gulp-copy": "0.0.2",
+    "gulp-filter": "^1.0.2",
     "gulp-if": "^1.2.4",
     "gulp-lintspaces": "^0.2.2",
     "gulp-util": "^3.0.1",
-    "lodash": "^2.4.1",
+    "lodash.forin": "^2.4.1",
     "map-stream": "^0.1.0",
     "markdown-creator": "^0.1.5",
-    "path": "^0.4.9",
-    "promise": "^6.0.0",
     "xml-mapping": "^1.7.0"
   }
 }
