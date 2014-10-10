@@ -1,6 +1,8 @@
 # [PackageDev] target_format: json, ext: sublime-completions
 scope: source.xtpl - source - entity.other, entity.other.attribute-name.html
 completions:
+- trigger: "alt\tAttr"
+  contents: alt="$1"$0
 - trigger: "align\tAttr"
   contents: align="$1"$0
 - trigger: "class\tAttr"

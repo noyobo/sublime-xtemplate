@@ -1,5 +1,10 @@
 {
+    "scope": "source.xtpl - source - entity.other, entity.other.attribute-name.html", 
     "completions": [
+        {
+            "contents": "alt=\"$1\"$0", 
+            "trigger": "alt\tAttr"
+        }, 
         {
             "contents": "align=\"$1\"$0", 
             "trigger": "align\tAttr"
@@ -31,6 +36,14 @@
         {
             "contents": "lang=\"$1\"$0", 
             "trigger": "lang\tAttr"
+        }, 
+        {
+            "contents": "lable=\"$1\"$0", 
+            "trigger": "lable\tAttr"
+        }, 
+        {
+            "contents": "name=\"$1\"$0", 
+            "trigger": "name\tAttr"
         }, 
         {
             "contents": "onclick=\"$1\"$0", 
@@ -91,7 +104,10 @@
         {
             "contents": "target=\"$1\"$0", 
             "trigger": "target\tAttr"
+        }, 
+        {
+            "contents": "value=\"$1\"$0", 
+            "trigger": "value\tAttr"
         }
-    ], 
-    "scope": "source.xtpl - source - entity.other, entity.other.attribute-name.html"
+    ]
 }
