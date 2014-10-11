@@ -21,6 +21,11 @@ var paths = {
   language: 'Syntaxes/**/*.*'
 }
 
+var packageFloder = {
+  'mac' : '../../../Library/Application Support/Sublime Text 3/Packages/User/Xtemplate',
+  'win' : 'C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/Xtemplate'
+}
+
 var snippetsHeader = ['trigger', 'description', 'export']
 var snippetsObj = {};
 // check tabTrigger
@@ -34,7 +39,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('clean:dev', function() {
-  var pathUri = isMac ? '../../../Library/Application Support/Sublime Text 3/Packages/User/Xtemplate' : 'C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/Xtemplate'
+  var pathUri = isMac ? packageFloder.mac : packageFloder.win
   gutil.log(gutil.colors.green('清空目录')+':'+pathUri)
   return gulp
     .src(pathUri)
@@ -88,13 +93,10 @@ gulp.task('dev', ['clean:dev'], function() {
     .pipe(
       gulpif(
         isMac,
-        copy('../../../Library/Application Support/Sublime Text 3/Packages/User/Xtemplate'),
-        copy('C:/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/Xtemplate')
+        copy(packageFloder.mac),
+        copy(packageFloder.win)
       )
     )
 })
 
-gulp.task('watch', function() {
-  gulp.watch(paths.language, ['language']);
-});
 gulp.task('default', ['lint']);
