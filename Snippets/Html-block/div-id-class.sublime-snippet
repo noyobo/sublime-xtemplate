@@ -1,8 +1,8 @@
 <snippet>
 	<content><![CDATA[
 <div id="${1:J_${2:name}}" class="${3:name}">
-	${4}
-</div>$0
+	$0
+</div>
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>dic</tabTrigger>

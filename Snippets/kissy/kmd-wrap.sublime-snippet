@@ -1,11 +1,11 @@
 <snippet>
-	<content><![CDATA[<ol>
+	<content><![CDATA[KISSY.add(function(S, require){
 	$0
-</ol>
+});
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>ol</tabTrigger>
+	<tabTrigger>kad</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	<scope>source.xtpl</scope>
-	<description><![CDATA[<ol/>]]></description>
+	<!-- <scope>source.js></scope> -->
+	<description>kissy.add</description>
 </snippet>

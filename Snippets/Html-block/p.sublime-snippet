@@ -1,5 +1,5 @@
 <snippet>
-	<content><![CDATA[<p>${1}</p>$0
+	<content><![CDATA[<p>$0</p>
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>p</tabTrigger>

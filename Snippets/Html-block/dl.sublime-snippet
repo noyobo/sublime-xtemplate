@@ -1,8 +1,8 @@
 <snippet>
 	<content><![CDATA[<dl>
 	<dt>${1}</dt>
-	<dd>${2}</dd>
-</dl>$0
+	<dd>$0</dd>
+</dl>
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>dl</tabTrigger>

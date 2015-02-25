@@ -76,6 +76,7 @@
 |trigger|description|export                                                                          |
 |-------|-----------|--------------------------------------------------------------------------------|
 |k      |`kissy cdn`|```<script src="//g.alicdn.com/kissy/k/${1:1.4.7}/seed${2:-min}.js"></script>```|
+|kad    |`kissy.add`|```KISSY.add(function(S, require){});```                                        |
 
 ## Spm
 

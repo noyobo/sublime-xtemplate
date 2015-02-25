@@ -1,6 +1,6 @@
 <snippet>
 	<content><![CDATA[
-<li id="${1}">${2}</li>$0
+<li id="${1}">$0</li>
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>lid</tabTrigger>
