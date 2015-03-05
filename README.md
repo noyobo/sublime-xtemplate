@@ -34,7 +34,7 @@ Autoprompting when you typing matching [Snippets List](SNIPPETS.md) trigger
 
 ## ChangeLog
 
-[Tags][5]
+[Tags][4]
 
 [1]: https://sublime.wbond.net/packages/Xtemplate
 [2]: http://wbond.net/sublime_packages/package_control/
