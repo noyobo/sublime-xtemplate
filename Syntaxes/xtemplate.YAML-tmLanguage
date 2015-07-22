@@ -170,7 +170,7 @@ repository:
   comments:
     patterns:
     - begin: \{\{\!
-      end: \}\}
+      end: (\}\}\s*)$
       captures:
         '0':
           name: punctuation.definition.comment.html
