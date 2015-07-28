@@ -11,53 +11,13 @@
 	</array>
 	<key>firstLineMatch</key>
 	<string>&lt;!DOCTYPE|doctype|&lt;(?i:html)|&lt;\?(?i:php)</string>
-	<key>foldingStartMarker</key>
-	<string>(?x)
-		(&lt;(?i:a|article|aside|audio|blockquote|body|canvas|datalist|details|div|dl|fieldset|figcaption|figure|footer|form|head|header|hgroup|li|mark|meter|nav|ol|output|p|progress|rp|rt|ruby|script|section|select|small|style|summary|table|tbody|tfoot|thead|time|tr|ul|video)\b.*?&gt;
-		|&lt;!--(?!.*--\s*&gt;)
-		|^&lt;!--\ \#tminclude\ (?&gt;.*?--&gt;)$
-		|&lt;\?(?:php)?.*\b(if|for(each)?|while)\b.+:
-		|\{\{?(if|foreach|capture|literal|foreach|php|section|strip)
-		|\{\s*($|\?&gt;\s*$|//|/\*(.*\*/\s*$|(?!.*?\*/)))
-		)</string>
-	<key>foldingStopMarker</key>
-	<string>(?x)
-		(&lt;/(?i:a|article|aside|audio|blockquote|body|canvas|datalist|details|div|dl|fieldset|figcaption|figure|footer|form|head|header|hgroup|li|mark|meter|nav|ol|output|p|progress|rp|rt|ruby|script|section|select|small|style|summary|table|tbody|tfoot|thead|time|tr|ul|video)&gt;
-		|^(?!.*?&lt;!--).*?--\s*&gt;
-		|^&lt;!--\ end\ tminclude\ --&gt;$
-		|&lt;\?(?:php)?.*\bend(if|for(each)?|while)\b
-		|\{\{?/(if|foreach|capture|literal|foreach|php|section|strip)
-		|^[^{]*\}
-		)</string>
-	<key>keyEquivalent</key>
-	<string>^~H</string>
 	<key>name</key>
 	<string>Xtemplate</string>
 	<key>patterns</key>
 	<array>
 		<dict>
 			<key>include</key>
-			<string>#block_helper</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#end_block</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#partial_and_var</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#entities</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#comments</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#embedded-code</string>
+			<string>#xtpl</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -554,7 +514,7 @@
 		<key>block_helper</key>
 		<dict>
 			<key>begin</key>
-			<string>#</string>
+			<string>(\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s*(?:(?:\()([^\)]+)(?:\)))?\s*</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -1146,22 +1106,6 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#comments</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#block_helper</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#end_block</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#partial_and_var</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#tag-id-attribute</string>
 				</dict>
 				<dict>
@@ -1179,6 +1123,28 @@
 				<dict>
 					<key>include</key>
 					<string>#embedded-code</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#block_helper</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#end_block</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#partial_and_var</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
 				</dict>
 			</array>
 		</dict>
