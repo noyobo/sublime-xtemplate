@@ -1,82 +1,48 @@
-{{abc}} 
-{{ user.name }}
-{{ user["name"] }}
-escaped: {{ foo }}
-unescaped: {{{ foo }}}
-{{%
+<ul>
+    <li>
+        <a href="asf"></a>
+        <div id="J_name">
+            {{ #if (true) }}
+                //code
+            {{/if}}
+            {{#if(x===1)}}
+                //code
+            {{elseif(x===2)}}
+                //code
+            {{else}}
+                //code
+            {{/if}}
 
-{{x}}
+            {{{block ('body')}}}
+            {{~ username ~}}
+            {{ user.name }}
+            {{ user["name"] }}
+            {{include ('header')}}
+            {{include ('header')}}
+        </div>
+        <div class="name" id="" style="color: red">
+            {{x}}
+        </div>
+        <audio src=""></audio>
+    </li>
+</ul>
 
-%}}
-{{! This is comment }}
-{{set x='1'}}
-{{set data=[1,2]}}
-{{ x ~}}  end
-{{#each(data)~}}
-{{this}}
-{{~/each}}
-{{include ("sub.xtpl") }}
+<style>
+    body{
+        color: red;
+    }
+</style>
 
-{{#each(arr)}}
-{{root.name}} {{name}}
-{{/each}}
+<div id="J_name"></div>
 
-{{#each(x.slice(1))}}{{this}} {{/each}}
+<script>
+    function abc(acbc) {
+        abc.afds
+    }
+    var a = a['32131']
+    if (aa && a === 1 || (a + 1)) {
 
-{{x+y}}
-{{x + "1"}}
-{{ y - 1 }}
+    }
+</script>
 
-{{#if( x===1 )}}
-1
-{{elseif (x===2)}}
-2
-{{else}}
-3
-{{/if}}
-
-{{#if ( (x+1) > 2 )}}
-{{/if}}
-
-{{#if(x>1 && y<2 || z === 3)}}
-{{/if}}
-
-{{#if(!x)}}
-{{/if}}
-{{ foo(1, 2, 3) }}
-
-{{# if (variable) }}
-    It is true
-{{/ if }}
-{{# if (hungry) }}
-    I am hungry
-{{ elseif (tired) }}
-    I am tired
-{{ else }}
-    I am good!
-{{/ if }}
-{{#with(a)}}
-{{b}} // 1
-{{/with}}
-{{set (array = [{
-    name: "foo"
-}, {
-    name: "bar"
-}])}}
-
-{{#each(array)}}
-    {{xindex}} {{this.name}}
-{{/each}}
-
-{{ set (x = "x", y = "y") }}
-{{ parse ("sub.html", xx = x, yy = x)}}
-
-{{extend ("./parent")}}
-
-{{#block ("head")}}
-    <link type="text/css" href="test.css" rev="stylesheet" rel="stylesheet"/>
-{{/block}}
-
-{{#block ("body")}}
-    <h2>{{title}}</h2>
-{{/block}}
+<!-- 啊斯蒂芬森颠覆 -->
