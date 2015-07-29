@@ -511,115 +511,6 @@
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>block_helper</key>
-		<dict>
-			<key>begin</key>
-			<string>(\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s*(?:(?:\()([^\)]+)(?:\)))?\s*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.constant.xtpl</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>support.function.xtpl</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>support.variable.xtpl</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(~?\}\})</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.constant.xtpl</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.function.block.start.xtpl</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#string-single-quoted</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#string-double-quoted</string>
-				</dict>
-			</array>
-		</dict>
-		<key>comments</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>\{\{\!</string>
-					<key>captures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.html</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>(\}\}\s*)$</string>
-					<key>name</key>
-					<string>comment.block.xtpl</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>match</key>
-							<string>@\w*</string>
-							<key>name</key>
-							<string>string.other.comment.xtpl</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>^([ \t]+)?\/\/</string>
-					<key>captures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.html</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>([\t\n])\s*</string>
-					<key>name</key>
-					<string>comment.block.xtpl</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>\/\*</string>
-					<key>captures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.html</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>\*\/\s*</string>
-					<key>name</key>
-					<string>comment.block.xtpl</string>
-				</dict>
-			</array>
-		</dict>
 		<key>embedded-code</key>
 		<dict>
 			<key>patterns</key>
@@ -641,36 +532,6 @@
 					<string>#python</string>
 				</dict>
 			</array>
-		</dict>
-		<key>end_block</key>
-		<dict>
-			<key>begin</key>
-			<string>(\{\{~?)(/[a-zA-Z0-9_\.-]+)\s*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.constant.xtpl</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>support.function.xtpl</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(~?\}\})</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.constant.xtpl</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.function.block.end.xtpl</string>
 		</dict>
 		<key>entities</key>
 		<dict>
@@ -703,54 +564,17 @@
 				</dict>
 			</array>
 		</dict>
-		<key>partial_and_var</key>
+		<key>expression</key>
 		<dict>
-			<key>begin</key>
-			<string>(\{\{~?(?!\!)\{*(&gt;|!&lt;)*)\s*(\/[-_a-zA-Z0-9\.]+|(?:else|elseif|include|extend|block|tms|set|vmcommon)\b)?([-_a-zA-Z0-9\.]+)?\s*(?:(?:\()([^\)]+)(?:\)))?\s*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.constant.xtpl</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>support.function.xtpl</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter.xtpl</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter.xtpl</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(~?\}\}\}*)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.constant.xtpl</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.function.inline.other.xtpl</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#string-single-quoted</string>
+					<string>#xtpl-tag-open</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#string-double-quoted</string>
+					<string>#xtpl-tag-close</string>
 				</dict>
 			</array>
 		</dict>
@@ -1132,19 +956,105 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#block_helper</string>
+					<string>#expression</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl-conditional</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comments</key>
+					<string>条件语句</string>
+					<key>match</key>
+					<string>(#[a-z]+)</string>
+					<key>name</key>
+					<string>support.function.xtpl</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#end_block</string>
+					<key>comments</key>
+					<string>结束条件语句</string>
+					<key>match</key>
+					<string>(\/[a-z]+)</string>
+					<key>name</key>
+					<string>support.function.xtpl</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#partial_and_var</string>
+					<key>comments</key>
+					<string>关键字表达式</string>
+					<key>match</key>
+					<string>\b(else|elseif|include|extend|block|tms|set|vmcommon)\b</string>
+					<key>name</key>
+					<string>support.function.xtpl</string>
 				</dict>
+			</array>
+		</dict>
+		<key>xtpl-tag-close</key>
+		<dict>
+			<key>begin</key>
+			<string>([\{]{2,3})(?=\/)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.xtpl</string>
+				</dict>
+			</dict>
+			<key>comments</key>
+			<string>表达式闭合</string>
+			<key>end</key>
+			<string>([\}]{2,3})</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.xtpl</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>tag.close.close</string>
+			<key>patterns</key>
+			<array>
 				<dict>
 					<key>include</key>
-					<string>#comments</string>
+					<string>#xtpl-conditional</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl-tag-open</key>
+		<dict>
+			<key>begin</key>
+			<string>([\{]{2,3})(?!\!|\/)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.xtpl</string>
+				</dict>
+			</dict>
+			<key>comments</key>
+			<string>表达式起始</string>
+			<key>end</key>
+			<string>([\}]{2,3})</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.constant.xtpl</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>tag.open.xtpl</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#xtpl-conditional</string>
 				</dict>
 			</array>
 		</dict>

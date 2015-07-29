@@ -7,6 +7,7 @@ fileTypes:
 name: Xtemplate
 scopeName: source.xtpl
 uuid: d9776d5a-afa4-4016-8c8e-ffbe386edb58
+# http://manual.macromates.com/en/language_grammars
 patterns:
 - include: '#xtpl'
 
@@ -162,77 +163,6 @@ patterns:
   match: <
 
 repository:
-  comments:
-    patterns:
-    - begin: \{\{\!
-      end: (\}\}\s*)$
-      captures:
-        '0':
-          name: punctuation.definition.comment.html
-      name: comment.block.xtpl
-      patterns:
-      - match: '@\w*'
-        name: string.other.comment.xtpl
-    - begin: ^([ \t]+)?\/\/
-      captures:
-        '0':
-          name: punctuation.definition.comment.html
-      end: ([\t\n])\s*
-      name: comment.block.xtpl
-    - begin: \/\*
-      captures:
-        '0':
-          name: punctuation.definition.comment.html
-      end: \*\/\s*
-      name: comment.block.xtpl
-  block_helper:
-    begin: (\{\{~?)(\#[-a-zA-Z0-9_\./]+)\s*(?:(?:\()([^\)]+)(?:\)))?\s*
-    beginCaptures:
-      '1':
-        name: support.constant.xtpl
-      '2':
-        name: support.function.xtpl
-      '3':
-        name: support.variable.xtpl
-    end: (~?\}\})
-    endCaptures:
-      '1':
-        name: support.constant.xtpl
-    name: meta.function.block.start.xtpl
-    patterns:
-    - include: '#string-single-quoted'
-    - include: '#string-double-quoted'
-  end_block:
-    begin: (\{\{~?)(/[a-zA-Z0-9_\.-]+)\s*
-    beginCaptures:
-      '1':
-        name: support.constant.xtpl
-      '2':
-        name: support.function.xtpl
-    end: (~?\}\})
-    endCaptures:
-      '1':
-        name: support.constant.xtpl
-    name: meta.function.block.end.xtpl
-  partial_and_var:
-    begin: (\{\{~?(?!\!)\{*(>|!<)*)\s*(\/[-_a-zA-Z0-9\.]+|(?:else|elseif|include|extend|block|tms|set|vmcommon)\b)?([-_a-zA-Z0-9\.]+)?\s*(?:(?:\()([^\)]+)(?:\)))?\s*
-    beginCaptures:
-      '1':
-        name: support.constant.xtpl
-      '3':
-        name: support.function.xtpl
-      '4':
-        name: variable.parameter.xtpl
-      '5':
-        name: variable.parameter.xtpl
-    end: (~?\}\}\}*)
-    endCaptures:
-      '1':
-        name: support.constant.xtpl
-    name: meta.function.inline.other.xtpl
-    patterns:
-    - include: '#string-single-quoted'
-    - include: '#string-double-quoted'
   embedded-code:
     patterns:
     - include: '#ruby'
@@ -376,9 +306,50 @@ repository:
   # xtemplate syntaxes
   xtpl:
     patterns:
-    - include: '#block_helper'
-    - include: '#end_block'
-    - include: '#partial_and_var'
-    - include: '#comments'
+    - include: '#expression'
+
+  expression:
+    patterns:
+    - include: '#xtpl-tag-open'
+    - include: '#xtpl-tag-close'
+
+  xtpl-tag-open:
+    name: tag.open.xtpl
+    begin: ([\{]{2,3})(?!\!|\/)
+    end: ([\}]{2,3})
+    comments: 表达式起始
+    beginCaptures:
+      '1':
+        name: support.constant.xtpl
+    endCaptures:
+      '1':
+        name: support.constant.xtpl
+    patterns:
+    - include: '#xtpl-conditional'
+  xtpl-tag-close:
+    name: tag.close.close
+    comments: 表达式闭合
+    begin: ([\{]{2,3})(?=\/)
+    end: ([\}]{2,3})
+    beginCaptures:
+      '1':
+        name: support.constant.xtpl
+    endCaptures:
+      '1':
+        name: support.constant.xtpl
+    patterns:
+    - include: '#xtpl-conditional'
+
+  xtpl-conditional:
+    patterns:
+    - name: support.function.xtpl
+      comments: 条件语句
+      match: (#[a-z]+)
+    - name: support.function.xtpl
+      comments: 结束条件语句
+      match: (\/[a-z]+)
+    - name: support.function.xtpl
+      comments: 关键字表达式
+      match: \b(else|elseif|include|extend|block|tms|set|vmcommon)\b
 
 firstLineMatch: <!DOCTYPE|doctype|<(?i:html)|<\?(?i:php)
