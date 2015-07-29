@@ -1,0 +1,82 @@
+{{abc}} 
+{{ user.name }}
+{{ user["name"] }}
+escaped: {{ foo }}
+unescaped: {{{ foo }}}
+{{%
+
+{{x}}
+
+%}}
+{{! This is comment }}
+{{set x='1'}}
+{{set data=[1,2]}}
+{{ x ~}}  end
+{{#each(data)~}}
+{{this}}
+{{~/each}}
+{{include ("sub.xtpl") }}
+
+{{#each(arr)}}
+{{root.name}} {{name}}
+{{/each}}
+
+{{#each(x.slice(1))}}{{this}} {{/each}}
+
+{{x+y}}
+{{x + "1"}}
+{{ y - 1 }}
+
+{{#if( x===1 )}}
+1
+{{elseif (x===2)}}
+2
+{{else}}
+3
+{{/if}}
+
+{{#if ( (x+1) > 2 )}}
+{{/if}}
+
+{{#if(x>1 && y<2 || z === 3)}}
+{{/if}}
+
+{{#if(!x)}}
+{{/if}}
+{{ foo(1, 2, 3) }}
+
+{{# if (variable) }}
+    It is true
+{{/ if }}
+{{# if (hungry) }}
+    I am hungry
+{{ elseif (tired) }}
+    I am tired
+{{ else }}
+    I am good!
+{{/ if }}
+{{#with(a)}}
+{{b}} // 1
+{{/with}}
+{{set (array = [{
+    name: "foo"
+}, {
+    name: "bar"
+}])}}
+
+{{#each(array)}}
+    {{xindex}} {{this.name}}
+{{/each}}
+
+{{ set (x = "x", y = "y") }}
+{{ parse ("sub.html", xx = x, yy = x)}}
+
+{{extend ("./parent")}}
+
+{{#block ("head")}}
+    <link type="text/css" href="test.css" rev="stylesheet" rel="stylesheet"/>
+{{/block}}
+
+{{#block ("body")}}
+    <h2>{{title}}</h2>
+{{/block}}
