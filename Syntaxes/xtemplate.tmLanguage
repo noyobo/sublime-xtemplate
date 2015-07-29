@@ -117,7 +117,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#html-comments</string>
+					<string>#html-comment</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -199,7 +199,7 @@
 				</dict>
 			</array>
 		</dict>
-		<key>html-comments</key>
+		<key>html-comment</key>
 		<dict>
 			<key>patterns</key>
 			<array>
@@ -224,7 +224,7 @@
 							<key>match</key>
 							<string>--</string>
 							<key>name</key>
-							<string>invalid.illegal.bad-comments-or-CDATA.html</string>
+							<string>invalid.illegal.bad-comment-or-CDATA.html</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -438,7 +438,7 @@
 							<key>match</key>
 							<string>(\s*)(?!--|&gt;)\S(\s*)</string>
 							<key>name</key>
-							<string>invalid.illegal.bad-comments-or-CDATA.html</string>
+							<string>invalid.illegal.bad-comment-or-CDATA.html</string>
 						</dict>
 					</array>
 				</dict>
@@ -854,6 +854,10 @@
 					<key>include</key>
 					<string>#entities</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xtemplate</string>
+				</dict>
 			</array>
 		</dict>
 		<key>string-single-quoted</key>
@@ -889,6 +893,10 @@
 				<dict>
 					<key>include</key>
 					<string>#entities</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xtemplate</string>
 				</dict>
 			</array>
 		</dict>
@@ -1030,11 +1038,150 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#xtpl-comments</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#xtpl-literal-method</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>#xtpl-literal-parameters</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl-comments</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>\{\{\!</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.html</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(\}\}\s*)$</string>
+					<key>name</key>
+					<string>comment.block.xtpl</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>@\w*</string>
+							<key>name</key>
+							<string>string.other.comment.xtpl</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>^([ \t]+)?\/\/</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.html</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>([\t\n])\s*</string>
+					<key>name</key>
+					<string>comment.block.xtpl</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\/\*</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.html</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*\/\s*</string>
+					<key>name</key>
+					<string>comment.block.xtpl</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl-function-variable</key>
+		<dict>
+			<key>comment</key>
+			<string>条件语句</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#xtpl-literal-language-constant</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xtpl-literal-operators</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xtpl-literal-number</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xtpl-literal-regexp</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xtpl-literal-methods</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xtpl-literal-punctuation</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xtpl-literal-variable</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl-literal-language-constant</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!\.)\btrue\b</string>
+					<key>name</key>
+					<string>constant.language.boolean.true.xtpl</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!\.)\bfalse\b</string>
+					<key>name</key>
+					<string>constant.language.boolean.false.xtpl</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!\.)\bnull\b</string>
+					<key>name</key>
+					<string>constant.language.null.xtpl</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!\.)\bundefined\b</string>
+					<key>name</key>
+					<string>constant.language.undefined.xtpl</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!\.)\bNaN\b</string>
+					<key>name</key>
+					<string>constant.language.nan.xtpl</string>
 				</dict>
 			</array>
 		</dict>
@@ -1044,7 +1191,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(\{\{)\s*((?:#|\/)[\w]+)</string>
+					<string>(\{\{)\s*(\~?)\s*((?:#|\/)[\w]+)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1055,16 +1202,26 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
+							<string>keyword.operator.accessor.xtpl</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
 							<string>support.function.xtpl</string>
 						</dict>
 					</dict>
-					<key>comments</key>
+					<key>comment</key>
 					<string>带 # / 的表达式</string>
 					<key>end</key>
-					<string>(~?}})</string>
+					<string>(\~?)(~?}})</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.accessor.xtpl</string>
+						</dict>
+						<key>2</key>
 						<dict>
 							<key>name</key>
 							<string>support.constant.xtpl</string>
@@ -1074,6 +1231,10 @@
 					<string>meta.function.block.start.xtpl</string>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>include</key>
+							<string>#xtpl-function-variable</string>
+						</dict>
 						<dict>
 							<key>include</key>
 							<string>#string-single-quoted</string>
@@ -1100,7 +1261,7 @@
 							<string>support.function.xtpl</string>
 						</dict>
 					</dict>
-					<key>comments</key>
+					<key>comment</key>
 					<string>条件语句 不包含注释</string>
 					<key>end</key>
 					<string>(~?\}\}\}*)</string>
@@ -1118,6 +1279,10 @@
 					<array>
 						<dict>
 							<key>include</key>
+							<string>#xtpl-function-variable</string>
+						</dict>
+						<dict>
+							<key>include</key>
 							<string>#string-single-quoted</string>
 						</dict>
 						<dict>
@@ -1126,11 +1291,106 @@
 						</dict>
 					</array>
 				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(\{\{\%)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.constant.xtpl</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(~?%}})</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.constant.xtpl</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.function.inline.other.xtpl</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#xtpl-literal-method</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl-literal-methods</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;=\.)\b[\w]+\b(?=\()</string>
+					<key>name</key>
+					<string>entity.name.function.xtpl</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl-literal-number</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?i)(?:\B[-+]|\b)0x[0-9a-f]*\.(\B|\b[0-9]+)</string>
+					<key>name</key>
+					<string>invalid.illegal.numeric.hex.xtpl</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?:\B[-+]|\b)0[0-9]+\.(\B|\b[0-9]+)</string>
+					<key>name</key>
+					<string>invalid.illegal.numeric.octal.xtpl</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?xi)
+  (?:\B[-+])?
+  (?:
+    \b0b[0-1]*|                 # binary
+    \b0o[0-7]*|                 # octal
+    \b0x[0-9a-f]*|              # hex
+    (
+      \B\.[0-9]+|               # e.g. .999
+      \b[0-9]+(\.[0-9]*)?       # e.g. 999.999, 999. or 999
+    )(e[-+]?[0-9]+)?            # e.g. e+123, E-123
+  )</string>
+					<key>name</key>
+					<string>constant.numeric.xtpl</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?:\B[-+]|\b)(Infinity)\b</string>
+					<key>name</key>
+					<string>constant.language.infinity.xtpl</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl-literal-operators</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>[-\+\*\%\/&amp;\&lt;\&gt;\=\!]+</string>
+					<key>name</key>
+					<string>keyword.operator.js</string>
+				</dict>
 			</array>
 		</dict>
 		<key>xtpl-literal-parameters</key>
 		<dict>
-			<key>comments</key>
+			<key>comment</key>
 			<string>输出字段 变量</string>
 			<key>patterns</key>
 			<array>
@@ -1158,14 +1418,8 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>match</key>
-							<string>[_$a-zA-Z][$\w]*</string>
-							<key>name</key>
-							<string>variable.parameter.function.js</string>
-						</dict>
-						<dict>
 							<key>include</key>
-							<string>#xtpl-literal-punctuation</string>
+							<string>#xtpl-function-variable</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -1181,7 +1435,7 @@
 		</dict>
 		<key>xtpl-literal-punctuation</key>
 		<dict>
-			<key>comments</key>
+			<key>comment</key>
 			<string>标点符号</string>
 			<key>patterns</key>
 			<array>
@@ -1189,19 +1443,80 @@
 					<key>match</key>
 					<string>\.</string>
 					<key>name</key>
-					<string>entity.name.tag.xtpl</string>
+					<string>keyword.operator.accessor.xtpl</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>\[|\]</string>
 					<key>name</key>
-					<string>entity.name.tag.xtpl</string>
+					<string>meta.brace.square.xtpl</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>\~</string>
 					<key>name</key>
-					<string>entity.name.tag.xtpl</string>
+					<string>keyword.operator.accessor.xtpl</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl-literal-regexp</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(?x)
+  (?&lt;=
+    \.|\(|,|{|}|\[|;|,|&lt;|&gt;|&lt;=|&gt;=|==|!=|===|!==|\+|-|\*|%|\+\+|--|&lt;&lt;|&gt;&gt;|&gt;&gt;&gt;|&amp;|\||\^|!|~|&amp;&amp;|\|\||\?|:|=|\+=|-=|\*=|%=|&lt;&lt;=|&gt;&gt;=|&gt;&gt;&gt;=|&amp;=|\|=|\^=|/|/=|
+    \Wnew|\Wdelete|\Wvoid|\Wtypeof|\Winstanceof|\Win|\Wdo|\Wreturn|\Wcase|\Wthrow|
+    ^new|^delete|^void|^typeof|^instanceof|^in|^do|^return|^case|^throw|^
+  )\s*
+  (/)
+  (?!/|\*|$)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.xtpl</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(/)([gimy]*)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.xtpl</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.xtpl</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.regexp.xtpl</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.regexp.xtpl</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>xtpl-literal-variable</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>[_$a-zA-Z][$\w]*</string>
+					<key>name</key>
+					<string>variable.parameter.function.xtpl</string>
 				</dict>
 			</array>
 		</dict>
