@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/noyobo/sublime-xtemplate-snippets.git"
+    "url": "git://github.com/noyobo/sublime-xtemplate.git"
   },
   "author": "noyobo<noyobo@gmail.com>",
   "bugs": {
-    "url": "https://github.com/noyobo/sublime-xtemplate-snippets/issues"
+    "url": "https://github.com/noyobo/sublime-xtemplate/issues"
   },
-  "homepage": "https://github.com/noyobo/sublime-xtemplate-snippets",
+  "homepage": "https://github.com/noyobo/sublime-xtemplate",
   "devDependencies": {
     "gulp": "~3.9.0",
     "gulp-clean": "~0.3.1",

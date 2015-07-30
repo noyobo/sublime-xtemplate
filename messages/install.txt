@@ -2,8 +2,8 @@
 
 ==================================
 
-项目地址: https://github.com/noyobo/sublime-xtemplate-snippets
-Issuse: https://github.com/noyobo/sublime-xtemplate-snippets/issues/new
+项目地址: https://github.com/noyobo/sublime-xtemplate
+Issuse: https://github.com/noyobo/sublime-xtemplate/issues/new
 
 欢迎提交issuse. 让 Xtemplate 更健壮 :)
 你可以通过 Preferneces > Browse Pageage 打开 Xtemplate 目录. 增加/修改 代码
@@ -21,7 +21,7 @@ Issuse: https://github.com/noyobo/sublime-xtemplate-snippets/issues/new
 ## Usage
 
 你可以这这里查看支持的 snippets 列表 :
-https://github.com/noyobo/sublime-xtemplate-snippets/blob/master/SNIPPETS.md
+https://github.com/noyobo/sublime-xtemplate/blob/master/SNIPPETS.md
 
 默认支持 .xtpl 文件, 如果你需要对其他类型文件支持
 在 sublime 的右下角选择 Open all with current extension as ...
