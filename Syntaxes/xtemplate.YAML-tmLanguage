@@ -356,6 +356,7 @@ repository:
   xtpl-literal-methods:
     patterns:
     - name: entity.name.function.xtpl
+      comment: '匹配表达式内的方法 如: regex.test()'
       match: (?<=\.)\b[\w]+\b(?=\()
 
   xtpl-comments:

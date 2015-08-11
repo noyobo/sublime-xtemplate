@@ -1333,6 +1333,8 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>comment</key>
+					<string>匹配表达式内的方法 如: regex.test()</string>
 					<key>match</key>
 					<string>(?&lt;=\.)\b[\w]+\b(?=\()</string>
 					<key>name</key>
