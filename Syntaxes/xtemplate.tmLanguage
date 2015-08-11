@@ -965,6 +965,10 @@
 							<key>include</key>
 							<string>#entities</string>
 						</dict>
+						<dict>
+							<key>include</key>
+							<string>#xtemplate</string>
+						</dict>
 					</array>
 				</dict>
 				<dict>
