@@ -1195,7 +1195,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(\{\{)\s*(\~?)\s*((?:#|\/)[\w]+)</string>
+					<string>(\{\{)\s*(\~?)\s*((?:#|\/)\s*(?:if|each|with|macro|block))</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1336,7 +1336,15 @@
 					<key>comment</key>
 					<string>匹配表达式内的方法 如: regex.test()</string>
 					<key>match</key>
-					<string>(?&lt;=\.)\b[\w]+\b(?=\()</string>
+					<string>(?&lt;=(\w\.))\b[\w]+\b\s*(?=\()</string>
+					<key>name</key>
+					<string>entity.name.function.xtpl</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>匹配表达式内的方法 如: test()</string>
+					<key>match</key>
+					<string>(?&lt;!\.)\s*\b[\w]+\b\s*(?=\()</string>
 					<key>name</key>
 					<string>entity.name.function.xtpl</string>
 				</dict>

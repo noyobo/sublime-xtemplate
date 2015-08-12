@@ -191,7 +191,7 @@ repository:
     patterns:
     - name: meta.function.block.start.xtpl
       comment: '带 # / 的表达式'
-      begin: (\{\{)\s*(\~?)\s*((?:#|\/)[\w]+)
+      begin: (\{\{)\s*(\~?)\s*((?:#|\/)\s*(?:if|each|with|macro|block))
       beginCaptures:
         '1':
           name: support.constant.xtpl
@@ -357,7 +357,10 @@ repository:
     patterns:
     - name: entity.name.function.xtpl
       comment: '匹配表达式内的方法 如: regex.test()'
-      match: (?<=\.)\b[\w]+\b(?=\()
+      match: (?<=(\w\.))\b[\w]+\b\s*(?=\()
+    - name: entity.name.function.xtpl
+      comment: '匹配表达式内的方法 如: test()'
+      match: (?<!\.)\s*\b[\w]+\b\s*(?=\()
 
   xtpl-comments:
     patterns:
