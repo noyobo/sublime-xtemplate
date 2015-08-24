@@ -92,7 +92,7 @@
 |x--    |`{{% %}}`         |```{{%%}}```                                                          |
 |xb     |`block ...`       |```{{{block ('body')}}}```                                            |
 |xbc    |`block ... block` |```{{#block ('body')}}//code{{/block}}```                             |
-|xcm    |`{{! comments !}}`|```{{! zhu shi !}}```                                                 |
+|xcm    |`{{! comments !}}`|```{{! comments !}}```                                                |
 |xe     |`extend ...`      |```{{extend ('layout')}}```                                           |
 |xeach  |`each...`         |```{{#each([1,2,4])}}${2:\{\{this\}\}}{{/each}}```                    |
 |xi     |`include...`      |```{{include ('header')}}```                                          |
