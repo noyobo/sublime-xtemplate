@@ -364,12 +364,18 @@ repository:
 
   xtpl-comments:
     patterns:
-    - begin: \{\{\!
-      end: (\}\}\s*)$
+    # - name: comment.line.double-slash.xtpl
+    #   comment: '单行注释'
+    #   match: (\{\{!)(.+)(\}\})
+    - name: comment.block.documentation.xtpl
+      begin: \{\{\!(?!\{)
       captures:
         '0':
           name: punctuation.definition.comment.html
-      name: comment.block.xtpl
+      end: (?!>\!)\!\}\}
+      captures:
+        '0':
+          name: punctuation.definition.comment.html
       patterns:
       - match: '@\w*'
         name: string.other.comment.xtpl
@@ -378,12 +384,6 @@ repository:
         '0':
           name: punctuation.definition.comment.html
       end: ([\t\n])\s*
-      name: comment.block.xtpl
-    - begin: \/\*
-      captures:
-        '0':
-          name: punctuation.definition.comment.html
-      end: \*\/\s*
       name: comment.block.xtpl
 
   embedded-code:
