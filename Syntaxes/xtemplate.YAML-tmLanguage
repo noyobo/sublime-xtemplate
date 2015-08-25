@@ -366,13 +366,27 @@ repository:
     patterns:
     # - name: comment.line.double-slash.xtpl
     #   comment: '单行注释'
-    #   match: (\{\{!)(.+)(\}\})
+    #   match: (\{\{!)([^\{\}]+)(\}\})
     - name: comment.block.documentation.xtpl
-      begin: \{\{\!(?!\{)
+      begin: \{\{\!(?!\-)
       captures:
         '0':
           name: punctuation.definition.comment.html
-      end: (?!>\!)\!\}\}
+      end: (?<!\-)(?<=\}\}$)
+      captures:
+        '0':
+          name: punctuation.definition.comment.html
+        '1':
+          name: punctuation.definition.comment.html
+      patterns:
+      - match: '@\w*'
+        name: string.other.comment.xtpl
+    - name: comment.block.documentation.xtpl
+      begin: \{\{\!\-\-(?!\{)
+      captures:
+        '0':
+          name: punctuation.definition.comment.html
+      end: (?<!\!)\-\-\!\}\}
       captures:
         '0':
           name: punctuation.definition.comment.html

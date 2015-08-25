@@ -1060,7 +1060,37 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\{\{\!(?!\{)</string>
+					<string>\{\{\!(?!\-)</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.html</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.html</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?&lt;!\-)(?&lt;=\}\}$)</string>
+					<key>name</key>
+					<string>comment.block.documentation.xtpl</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>@\w*</string>
+							<key>name</key>
+							<string>string.other.comment.xtpl</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\{\{\!\-\-(?!\{)</string>
 					<key>captures</key>
 					<dict>
 						<key>0</key>
@@ -1070,7 +1100,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?!&gt;\!)\!\}\}</string>
+					<string>(?&lt;!\!)\-\-\!\}\}</string>
 					<key>name</key>
 					<string>comment.block.documentation.xtpl</string>
 					<key>patterns</key>

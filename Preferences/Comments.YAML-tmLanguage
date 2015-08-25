@@ -5,6 +5,10 @@ scope: source.xtpl
 settings:
   shellVariables:
   - name: TM_COMMENT_START
-    value: '{{! '
+    value: '{{!-- '
   - name: TM_COMMENT_END
-    value: ' !}}'
+    value: ' --!}}'
+  - name: TM_COMMENT_START_2
+    value: '{{!'
+  - name: TM_COMMENT_END_2
+    value: '}}'

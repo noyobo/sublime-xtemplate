@@ -86,31 +86,31 @@
 
 ## Xtemplate
 
-|trigger|description       |export                                                                |
-|-------|------------------|----------------------------------------------------------------------|
-|x-     |`{{% %}}`         |```{{%  %}}```                                                        |
-|x--    |`{{% %}}`         |```{{%%}}```                                                          |
-|xb     |`block ...`       |```{{{block ('body')}}}```                                            |
-|xbc    |`block ... block` |```{{#block ('body')}}//code{{/block}}```                             |
-|xcm    |`{{! comments !}}`|```{{! comments !}}```                                                |
-|xe     |`extend ...`      |```{{extend ('layout')}}```                                           |
-|xeach  |`each...`         |```{{#each([1,2,4])}}${2:\{\{this\}\}}{{/each}}```                    |
-|xi     |`include...`      |```{{include ('header')}}```                                          |
-|xid    |`index`           |```{{xindex}}```                                                      |
-|xif    |`if...`           |```{{#if(true)}}//code{{/if}}```                                      |
-|xife   |`if...else...`    |```{{#if(x===1)}}//code{{else}}//code{{/if}}```                       |
-|xiff   |`if...elseif...`  |```{{#if(x===1)}}//code{{elseif(x===2)}}//code{{else}}//code{{/if}}```|
-|xifw   |`if...with...`    |```{{#if(obj)}}{{#with(obj)}}//code{{/with}}{{/if}}```                |
-|xlif   |`elseif...`       |```{{elseif(x===1)}}//code```                                         |
-|xm     |`macro`           |```{{#macro('name',param)}}{{param}}{{/macro}}```                     |
-|xmc    |`macro call`      |```{{#macro('name','variable')}}```                                   |
-|xrange |`range...`        |```range(0,3)```                                                      |
-|xroot  |`root`            |```{{root.name}}```                                                   |
-|xs     |`set`             |```{{set(x=1)}}```                                                    |
-|xthis  |`this`            |```{{this}}```                                                        |
-|xtms   |`{{{tms}}}`       |```{{{tms ('${1:header.html}')}}}```                                  |
-|xvm    |`vmcommon...`     |```{{vmcommon ('${1:header.html}')}}```                               |
-|xw     |`with ...`        |```{{#with(obj)}}//code{{/with}}```                                   |
-|xx     |`{{-}}`           |```{{}}```                                                            |
-|xxx    |`{{{_}}}`         |```{{{}}}```                                                          |
+|trigger|description           |export                                                                |
+|-------|----------------------|----------------------------------------------------------------------|
+|x-     |`{{% %}}`             |```{{%  %}}```                                                        |
+|x--    |`{{% %}}`             |```{{%%}}```                                                          |
+|xb     |`block ...`           |```{{{block ('body')}}}```                                            |
+|xbc    |`block ... block`     |```{{#block ('body')}}//code{{/block}}```                             |
+|xcm    |`{{!-- comments --!}}`|```{{!-- comments --!}}```                                            |
+|xe     |`extend ...`          |```{{extend ('layout')}}```                                           |
+|xeach  |`each...`             |```{{#each([1,2,4])}}${2:\{\{this\}\}}{{/each}}```                    |
+|xi     |`include...`          |```{{include ('header')}}```                                          |
+|xid    |`index`               |```{{xindex}}```                                                      |
+|xif    |`if...`               |```{{#if(true)}}//code{{/if}}```                                      |
+|xife   |`if...else...`        |```{{#if(x===1)}}//code{{else}}//code{{/if}}```                       |
+|xiff   |`if...elseif...`      |```{{#if(x===1)}}//code{{elseif(x===2)}}//code{{else}}//code{{/if}}```|
+|xifw   |`if...with...`        |```{{#if(obj)}}{{#with(obj)}}//code{{/with}}{{/if}}```                |
+|xlif   |`elseif...`           |```{{elseif(x===1)}}//code```                                         |
+|xm     |`macro`               |```{{#macro('name',param)}}{{param}}{{/macro}}```                     |
+|xmc    |`macro call`          |```{{#macro('name','variable')}}```                                   |
+|xrange |`range...`            |```range(0,3)```                                                      |
+|xroot  |`root`                |```{{root.name}}```                                                   |
+|xs     |`set`                 |```{{set(x=1)}}```                                                    |
+|xthis  |`this`                |```{{this}}```                                                        |
+|xtms   |`{{{tms}}}`           |```{{{tms ('${1:header.html}')}}}```                                  |
+|xvm    |`vmcommon...`         |```{{vmcommon ('${1:header.html}')}}```                               |
+|xw     |`with ...`            |```{{#with(obj)}}//code{{/with}}```                                   |
+|xx     |`{{-}}`               |```{{}}```                                                            |
+|xxx    |`{{{_}}}`             |```{{{}}}```                                                          |
 
