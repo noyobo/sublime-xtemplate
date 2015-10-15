@@ -1016,6 +1016,10 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#xtemplate</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#tag-id-attribute</string>
 				</dict>
 				<dict>

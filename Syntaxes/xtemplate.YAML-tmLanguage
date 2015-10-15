@@ -513,6 +513,7 @@ repository:
       - {include: '#entities'}
   tag-stuff:
     patterns:
+    - {include: '#xtemplate'}
     - {include: '#tag-id-attribute'}
     - {include: '#tag-generic-attribute'}
     - {include: '#string-double-quoted'}
