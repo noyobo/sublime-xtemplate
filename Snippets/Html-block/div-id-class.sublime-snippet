@@ -7,6 +7,6 @@
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>dic</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	<scope>source.xtpl</scope>
+	<scope>source.xtpl, source.js</scope>
 	<description><![CDATA[<div id class/>]]></description>
 </snippet>
