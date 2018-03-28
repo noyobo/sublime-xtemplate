@@ -1,5 +1,7 @@
 sublime-xtemplate [![Build Status](https://travis-ci.org/noyobo/sublime-xtemplate.svg)](https://travis-ci.org/noyobo/sublime-xtemplate)
 ==========================
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/noyobo/sublime-xtemplate.svg)](https://greenkeeper.io/)
 Syntax Highlighting & snippets for xtemplate
 
 ## Feature
